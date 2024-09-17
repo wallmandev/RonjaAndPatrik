@@ -8,8 +8,8 @@ function Hero() {
             <section className="hero hero--first">
                 <div className="hero-inner">
                     <div className="hero-inner__image-container">
-                        <img src="./src/images/Hands.jpg" alt="RonjaAndPatrik" className="hero-inner__image-item" />
-                        <img src="./src/images/Holding.JPG" alt="RonjaAndPatrik" className="hero-inner__image-item" />
+                    <img src="/images/Hands.jpg" alt="RonjaAndPatrik" className="hero-inner__image-item" />
+                    <img src="/images/Holding.JPG" alt="RonjaAndPatrik" className="hero-inner__image-item" />
                     </div>
                     <h1 className="hero-inner__topic">We are getting married</h1>
                 </div>
