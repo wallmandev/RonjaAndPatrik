@@ -1,6 +1,7 @@
 {
   "name": "ronjaandpatrik",
   "private": true,
+  "homepage": "https://wallmandev.github.io/RonjaAndPatrik",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
