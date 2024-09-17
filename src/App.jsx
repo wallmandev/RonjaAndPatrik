@@ -1,35 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
+import Header from './Header';
+import Hero from './Hero'; // Importera Hero
+import { Routes, Route } from 'react-router-dom'; // Lägg till Routes och Route från react-router-dom
+import Schedule from './pages/Schedule'; // Importera Schedule-komponenten
+import Rsvp from './pages/Rsvp';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Hero />} /> {/* Route för startsidan */}
+        <Route path="/schedule" element={<Schedule />} /> {/* Route för Schedule-sidan */}
+        <Route path="/RSVP" element={<Rsvp />} />
+      </Routes>
+    </div>
+  );
 }
 
-export default App
+export default App;

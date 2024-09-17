@@ -1,0 +1,77 @@
+li{
+    list-style: none;
+}
+
+a{
+    cursor: pointer;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+
+    &-topic__content{
+        font-family: 'BrittanySignature', sans-serif;
+        font-size: 3rem;
+        font-weight: lighter;
+    }
+    
+    &-inner{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    &-nav{
+        
+        
+        &__item{
+            display: flex;
+            gap: 2rem;
+        }
+
+        .header-nav__links {
+            position: relative;
+            text-decoration: none;
+            color: black;
+            padding: 5px 10px;
+            display: inline-block;
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 24px;
+            color: rgb(97, 119, 112);
+        }
+        
+        .header-nav__links::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background-color: rgb(97, 119, 112);;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            z-index: 99;
+            pointer-events: none;
+        }
+        
+        .header-nav__links:hover::after,
+        .header-nav__items.active .header-nav__links::after {
+            width: 100%; /* Håller strecket vid hover och när länken är aktiv */
+        }
+        
+        .header-nav__items:hover .header-nav__links,
+        .header-nav__items.active .header-nav__links {
+            color: rgb(97, 119, 112);; /* Håller färgen vid hover och när länken är aktiv */
+        }
+    }
+}

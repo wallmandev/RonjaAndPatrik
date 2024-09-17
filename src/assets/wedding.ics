@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ronja & Patrik Wedding//EN
+BEGIN:VEVENT
+UID:wedding-2025
+DTSTAMP:20240329T120000Z
+DTSTART:20250531T120000Z
+DTEND:20250531T160000Z
+SUMMARY:Wedding Celebration
+LOCATION:85 Fredriksrovägen, Skåne län 244 91, Sweden
+DESCRIPTION:We are looking forward to celebrating our big day with you!
+END:VEVENT
+END:VCALENDAR
