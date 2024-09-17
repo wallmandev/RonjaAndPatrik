@@ -24,7 +24,7 @@ function Schedule() {
                             </div>
                         </div>
                         <div className="schedule-image">
-                            <img className="schedule-image__item" src="./src/images/Untitled (500 x 500 px).svg"></img>
+                            <img className="schedule-image__item" src={`${import.meta.env.BASE_URL}images/Untitled (500 x 500 px).svg`}></img>
                         </div>
                     </section>
                 </div>

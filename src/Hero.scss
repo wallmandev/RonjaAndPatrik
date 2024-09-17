@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'BrittanySignature';
-    src: url('./src/fonts/BrittanySignature.ttf') format('truetype');
+    src: url('/RonjaAndPatrik/fonts/BrittanySignature.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -70,7 +70,7 @@
             font-family: 'BrittanySignature', sans-serif;
             font-size: 8rem;
             width: 100%;
-            margin: 0;
+            margin: 0 1rem 0 1rem;
             z-index: 10; /* Placera texten ovanpå */
             text-align: center;
         }
@@ -78,6 +78,7 @@
 
     /* Andra sektionen: Namnen */
     &--second {
+        box-sizing: content-box;
         background-color: #ffffff;
 
         .hero-inner__content {
@@ -123,35 +124,74 @@
 }
 
 @media only screen and (max-width: 1367px){
+    
+    .hero--first .hero-inner__topic{
+        font-size: 6rem;
+    }
+
+    .hero-image1__item1{
+        top: 2rem;
+        left: 65%;
+    }
     .hero-image2__item2{
         top: -8rem;
-        left: 15rem;
+        left: 25rem;
+    }
+}
+@media only screen and (max-width: 1026px){
+    .hero-image1__item1{
+        top: 5rem;
+        left: 45rem;
+    }
+    .hero-image2__item2{
+        top: -7rem;
+        left: 20rem;
     }
 }
 
-@media only screen and (max-width: 1000px){
+@media only screen and (max-width: 1001px){
     .hero-image1__item1{
-        width: 500px;
-        right: -5rem;
+        left: 31rem;
+        top: -2rem;
     }
 
     .hero-image2__item2{
-        width: 500px;
-        top: -2rem;
-        left: 12rem;
+        top: -8rem;
+        left: 17rem;
     }
 }
 @media only screen and (max-width: 800px){
+    .hero-inner__image-item2{
+        display: none;
+    }
+
+    .hero--first .hero-inner__image-container .hero-inner__image-item{
+        width: 100%;
+    }
+
     .hero-image1__item1{
-        width: 500px;
-        right: -13rem;
+        width: 650px;
+        left: 16rem;
     }
 
     .hero-image2__item2{
-        width: 500px;
-        top: -2rem;
-        left: 9rem;
+        top: -10rem;
+        width: 650px;
+        left: 3rem;
     }
+@media only screen and (max-width: 570px){
+    .hero-image1__item1{
+        width: 650px;
+        left: 9rem;
+        top: -4rem;
+    }
+
+    .hero-image2__item2{
+        width: 650px;
+        top: -13rem;
+        left: 2rem;
+    }
+}
 
     .hero-inner__topic{
         font-size: 5rem !important;

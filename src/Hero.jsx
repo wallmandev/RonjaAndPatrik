@@ -8,8 +8,8 @@ function Hero() {
             <section className="hero hero--first">
                 <div className="hero-inner">
                     <div className="hero-inner__image-container">
-                    <img src="/images/Hands.jpg" alt="RonjaAndPatrik" className="hero-inner__image-item" />
-                    <img src="/images/Holding.JPG" alt="RonjaAndPatrik" className="hero-inner__image-item" />
+                        <img src={`${import.meta.env.BASE_URL}images/Hands.jpg`} alt="RonjaAndPatrik" className="hero-inner__image-item" />
+                        <img src={`${import.meta.env.BASE_URL}images/Holding.JPG`} alt="RonjaAndPatrik" className="hero-inner__image-item hero-inner__image-item2" />
                     </div>
                     <h1 className="hero-inner__topic">We are getting married</h1>
                 </div>
@@ -23,10 +23,10 @@ function Hero() {
                     <h3 className="hero-inner__topic-patrik">Richard Gardebo</h3>
                 </div>
                 <div className="hero-image1">
-                    <img src="./src/images/Untitled (500 x 500 px).svg" alt="flowers" className="hero-image1__item1"></img>   
+                    <img src={`${import.meta.env.BASE_URL}images/Untitled (500 x 500 px).svg`} alt="flowers" className="hero-image1__item1"></img>   
                 </div> 
                 <div className="hero-image2">
-                    <img src="./src/images/Untitled (500 x 500 px).svg" alt="flowers" className="hero-image2__item2"></img>
+                    <img src={`${import.meta.env.BASE_URL}images/Untitled (500 x 500 px).svg`} alt="flowers" className="hero-image2__item2"></img>
                 </div>
             </section>
         </>
