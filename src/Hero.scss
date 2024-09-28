@@ -22,6 +22,56 @@
             top: 0;
             position: absolute;
         }
+
+        @media only screen and (max-width: 1150px) {
+            .hero-image1__item1 {
+                right: -7rem;
+                top: 0;
+            }
+        }
+        @media only screen and (max-width: 680px){
+            .hero-image1__item1{
+                width: 400px;
+                left: 50%;
+                top: 2rem;
+            }
+        }
+        @media only screen and (max-width: 550px){
+            .hero-image1__item1{
+                width: 400px;
+                left: 40%;
+                top: 2rem;
+            }
+        }
+        @media only screen and (max-width: 450px){
+            .hero-image1__item1{
+                width: 400px;
+                left: 28%;
+                top: 1rem;
+            }
+        }
+        @media only screen and (max-height: 700px) {
+            .hero-image1__item1 {
+                width: 400px;
+                left: 35%;
+                top: -1rem;
+            }
+        }
+        
+        @media only screen and (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
+            .hero-image1__item1 {
+                width: 500px;
+                left: 71%;
+                opacity: 100;
+            }
+        }
+        @media only screen and (min-width: 820px) and (max-width: 1180px) and (orientation: landscape) {
+            .hero-image1__item1 {
+                width: 500px;
+                left: 66%;
+                opacity: 100;
+            }
+        }
     }
     &-image2{
         transform: scaleX(-1);
@@ -31,11 +81,110 @@
             transform: scaleY(-1);
             width: 650px;
             position: absolute;
-            left: 38rem;
+            left: 89rem;
             top: -8rem;
         }
+        @media only screen and (max-width: 1800px) {
+            .hero-image2__item2 {
+                left: 78rem;
+                top: -8rem;
+            }
+        }
+        @media only screen and (max-width: 1600px) {
+            .hero-image2__item2 {
+                left: 66rem;
+                top: -8rem;
+            }
+        }
+        @media only screen and (max-width: 1450px) {
+            .hero-image2__item2 {
+                left: 59rem;
+                width: 600px;
+                top: -13rem;
+            }
+        }
+        @media only screen and (max-width: 1290px) {
+            .hero-image2__item2 {
+                left: 47rem;
+                top: -8rem;
+            }
+        }
+        @media only screen and (max-width: 1100px) {
+            .hero-image2__item2 {
+                left: 37rem;
+                top: -8rem;
+            }
+        }
+        @media only screen and (max-width: 995px) {
+            .hero-image2__item2 {
+                left: 30rem;
+                top: -8rem;
+            }
+        }
+        @media only screen and (max-width: 900px) {
+            .hero-image2__item2 {
+                left: 25rem;
+                top: -8rem;
+            }
+        }
+        @media only screen and (max-width: 800px) {
+            .hero-image2__item2 {
+                left: 18rem;
+                top: -8rem;
+            }
+        }
+        @media only screen and (max-width: 680px) {
+            .hero-image2__item2 {
+                width: 400px;
+                left: 22rem;
+                top: 2rem;
+            }
+        }
+        @media only screen and (max-width: 600px) {
+            .hero-image2__item2 {
+                width: 400px;
+                left: 18rem;
+                top: 2rem;
+            }
+        }
+        @media only screen and (max-width: 550px) {
+            .hero-image2__item2 {
+                width: 400px;
+                left: 14rem;
+                top: 3rem;
+            }
+        }
+        @media only screen and (max-width: 450px) {
+            .hero-image2__item2 {
+                width: 400px;
+                left: 8rem;
+                top: 1rem;
+            }
+        }
+        @media only screen and (max-height: 700px) {
+            .hero-image2__item2 {
+                width: 400px;
+                left: 7rem;
+                top: -1rem;
+            }
+        }
+        
+        @media only screen and (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
+            .hero-image2__item2 {
+                width: 500px;
+                left: 60rem;
+                opacity: 100;
+            }
+        }
     }
-
+    
+    @media only screen and (min-width: 820px) and (max-width: 1180px) and (orientation: landscape) {
+        .hero-image2__item2 {
+            width: 500px;
+            left: 50rem;
+            opacity: 100;
+        }
+    }
     /* Första sektionen: Bilder och text */
     &--first {
         background-color: #f0f0f0;
@@ -55,10 +204,12 @@
             height: 100%;
 
             .hero-inner__image-item {
-                width: 50%; /* Varje bild tar upp halva bredden */
-                height: 100%;
-                object-fit: cover; /* Bibehåller bildens proportioner */
+                width: 50%; /* Anpassar sig efter förälderns bredd */
+                height: auto; /* Låter höjden anpassa sig till bredden */
+                object-fit: cover;
+                -webkit-object-fit: cover; /* För Safari */
             }
+            
         }
 
         .hero-inner__topic {
@@ -70,7 +221,7 @@
             font-family: 'BrittanySignature', sans-serif;
             font-size: 8rem;
             width: 100%;
-            margin: 0 1rem 0 1rem;
+            margin: 1rem 0rem 1rem 0rem;
             z-index: 10; /* Placera texten ovanpå */
             text-align: center;
         }
@@ -88,6 +239,15 @@
             align-items: center;
             text-align: center;
             height: 100%;
+            width: 100%;
+            padding: 2rem; /* Lägg till lite padding för bättre spacing på små skärmar */
+            color: #111111;
+        }
+        
+        @media only screen and (max-width: 768px) {
+            .hero-inner__content {
+                padding: 1rem; /* Minska padding på mobiler */
+            }
         }
 
         .hero-inner__topic-ronja,
@@ -113,14 +273,9 @@
     /* CSS-regler för skärmar med max 768px bredd (t.ex. surfplattor eller mobiler) */
     .hero-image1__item1 {
         width: 600px;
-        right: -10rem;
+        right: -8%;
     }
 
-    .hero-image2__item2 {
-        width: 600px;
-        top: -10rem;
-        left: 27rem;
-    }
 }
 
 @media only screen and (max-width: 1367px){
@@ -129,37 +284,8 @@
         font-size: 6rem;
     }
 
-    .hero-image1__item1{
-        top: 2rem;
-        left: 65%;
-    }
-    .hero-image2__item2{
-        top: -8rem;
-        left: 25rem;
-    }
-}
-@media only screen and (max-width: 1026px){
-    .hero-image1__item1{
-        top: 5rem;
-        left: 45rem;
-    }
-    .hero-image2__item2{
-        top: -7rem;
-        left: 20rem;
-    }
 }
 
-@media only screen and (max-width: 1001px){
-    .hero-image1__item1{
-        left: 31rem;
-        top: -2rem;
-    }
-
-    .hero-image2__item2{
-        top: -8rem;
-        left: 17rem;
-    }
-}
 @media only screen and (max-width: 800px){
     .hero-inner__image-item2{
         display: none;
@@ -168,30 +294,6 @@
     .hero--first .hero-inner__image-container .hero-inner__image-item{
         width: 100%;
     }
-
-    .hero-image1__item1{
-        width: 650px;
-        left: 16rem;
-    }
-
-    .hero-image2__item2{
-        top: -10rem;
-        width: 650px;
-        left: 3rem;
-    }
-@media only screen and (max-width: 570px){
-    .hero-image1__item1{
-        width: 650px;
-        left: 9rem;
-        top: -4rem;
-    }
-
-    .hero-image2__item2{
-        width: 650px;
-        top: -13rem;
-        left: 2rem;
-    }
-}
 
     .hero-inner__topic{
         font-size: 5rem !important;
@@ -203,5 +305,4 @@
     .hero-inner__topic-patrik{
         font-size: 3rem !important;
     }
-
 }

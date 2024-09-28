@@ -128,140 +128,139 @@ function Rsvp() {
             </h1>
             <p className="content-paragraph"> Please confirm your attendance by <strong>March 31, 2025</strong>, so we can plan everything to perfection. We hope you can join us and make our day even more memorable. Thank you for your response!</p>
         </div>
-        <div className="rsvp-form">
-        <h1 className="rsvp-form__header">RSVP</h1>
-        {submitted ? (
-            <div className="thank-you-message">
-            <h2>Tack för ditt svar!</h2>
-            <p>Vi ser fram emot att se dig på vårt bröllop!</p>
-            </div>
-        ) : (
-            <form onSubmit={handleSubmit}>
-            <div className="form-group">
-                <label htmlFor="name">Namn:</label>
-                <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                />
-            </div>
-            <div className="form-group">
-                <label htmlFor="email">E-post:</label>
-                <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                />
-            </div>
-            <div className="form-group">
-                <label htmlFor="attending">Kommer du att delta?</label>
-                <select
-                    id="attending"
-                    name="attending"
-                    value={formData.attending}
-                    onChange={handleChange}
-                    required
-                >
-                    <option value="Ja">Ja</option>
-                    <option value="Nej">Nej</option>
-                </select>
+            <div className="rsvp-form">
+                <h1 className="rsvp-form__header">RSVP</h1>
+                {submitted ? (
+                <div className="thank-you-message">
+                <h2>Tack för ditt svar!</h2>
+                <p>Vi ser fram emot att se dig på vårt bröllop!</p>
                 </div>
-    
+            ) : (
+                <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                <label htmlFor="mealPreference">Matpreferens:</label>
-                <select
-                    id="mealPreference"
-                    name="mealPreference"
-                    value={formData.mealPreference}
-                    onChange={handleChange}
-                    required
-                >
-                    <option value="">Välj matpreferens</option>
-                    <option value="Kött">Kött</option> 
-                    <option value="Vegetariskt">Vegetariskt</option> 
-                    <option value="Veganskt">Veganskt</option> 
-                    <option value="Övrigt">Annan (specificera i text)</option>
-                </select>
-                </div>
-                {/* Visa textrutan om "Annan" väljs */}
-            {formData.mealPreference === "Övrigt" && (
-                <div className="form-group">
-                <label htmlFor="otherMealPreference">Specificera din matpreferens:</label>
-                <input
+                    <label htmlFor="name">Namn:</label>
+                    <input
                     type="text"
-                    id="otherMealPreference"
-                    name="otherMealPreference"
-                    value={formData.otherMealPreference}
-                    onChange={handleChange}
-                    required
-                />
-                </div>
-            )}
-
-                <h3 className="form-header">Familjemedlemmar</h3>
-                {formData.familyMembers.map((member, index) => (
-                <div key={index} className="form-group family-member">
-                <label htmlFor={`memberName${index}`}>Namn på familjemedlem:</label>
-                <input
-                    type="text"
-                    id={`memberName${index}`}
+                    id="name"
                     name="name"
-                    value={member.name}
-                    onChange={(e) => handleFamilyMemberChange(index, e)}
-                    // required
-                />
-                <label htmlFor={`mealPreference${index}`}>Matpreferens:</label>
-                <select
-                    id={`mealPreference${index}`}
-                    name="mealPreference"
-                    value={member.mealPreference}
-                    onChange={(e) => handleFamilyMemberChange(index, e)}
-                    // required
-                >
-                    <option value="">Välj matpreferens</option>
-                    <option value="Kött">Kött</option>
-                    <option value="Vegetariskt">Vegetariskt</option>
-                    <option value="Veganskt">Veganskt</option>
-                    <option value="Annan">Annan (specificera i kommentarerna)</option>
-                </select>
-
-                {member.mealPreference === 'Annan' && (
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="email">E-post:</label>
+                    <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="attending">Kommer du att delta?</label>
+                    <select
+                        id="attending"
+                        name="attending"
+                        value={formData.attending}
+                        onChange={handleChange}
+                        required
+                    >
+                        <option value="Ja">Ja</option>
+                        <option value="Nej">Nej</option>
+                    </select>
+                    </div>
+        
                     <div className="form-group">
-                    <label htmlFor={`comment${index}`}>Specificera matpreferens:</label>
-                    <textarea
-                        id={`comment${index}`}
-                        name="comment"
-                        value={member.comment}
-                        onChange={(e) => handleFamilyMemberChange(index, e)}
-                        rows="3"
-                        placeholder="Skriv din matpreferens här"
+                    <label htmlFor="mealPreference">Matpreferens:</label>
+                    <select
+                        id="mealPreference"
+                        name="mealPreference"
+                        value={formData.mealPreference}
+                        onChange={handleChange}
+                        required
+                    >
+                        <option value="">Välj matpreferens</option>
+                        <option value="Kött">Kött</option> 
+                        <option value="Vegetariskt">Vegetariskt</option> 
+                        <option value="Veganskt">Veganskt</option> 
+                        <option value="Övrigt">Annan (specificera i text)</option>
+                    </select>
+                    </div>
+                    {/* Visa textrutan om "Annan" väljs */}
+                {formData.mealPreference === "Övrigt" && (
+                    <div className="form-group">
+                    <label htmlFor="otherMealPreference">Specificera din matpreferens:</label>
+                    <input
+                        type="text"
+                        id="otherMealPreference"
+                        name="otherMealPreference"
+                        value={formData.otherMealPreference}
+                        onChange={handleChange}
+                        required
                     />
                     </div>
                 )}
 
-                <button type="button" onClick={() => removeFamilyMember(index)}>
-                    Ta bort familjemedlem
-                </button>
-                </div>
-            ))}
-            <div className="rsvp-buttons">
-                <button type="button" onClick={addFamilyMember}>
-                    Lägg till familjemedlem
-                </button>
-        
-                <button type="submit">Skicka RSVP</button>
-            </div>
-            </form>
-        )}
-        </div>
-        </div>
+                    <h3 className="form-header">Familjemedlemmar</h3>
+                    {formData.familyMembers.map((member, index) => (
+                    <div key={index} className="form-group family-member">
+                    <label htmlFor={`memberName${index}`}>Namn på familjemedlem:</label>
+                    <input
+                        type="text"
+                        id={`memberName${index}`}
+                        name="name"
+                        value={member.name}
+                        onChange={(e) => handleFamilyMemberChange(index, e)}
+                        // required
+                    />
+                    <label htmlFor={`mealPreference${index}`}>Matpreferens:</label>
+                    <select
+                        id={`mealPreference${index}`}
+                        name="mealPreference"
+                        value={member.mealPreference}
+                        onChange={(e) => handleFamilyMemberChange(index, e)}
+                        // required
+                    >
+                        <option value="">Välj matpreferens</option>
+                        <option value="Kött">Kött</option>
+                        <option value="Vegetariskt">Vegetariskt</option>
+                        <option value="Veganskt">Veganskt</option>
+                        <option value="Annan">Annan (specificera i kommentarerna)</option>
+                    </select>
 
+                    {member.mealPreference === 'Annan' && (
+                        <div className="form-group">
+                        <label htmlFor={`comment${index}`}>Specificera matpreferens:</label>
+                        <textarea
+                            id={`comment${index}`}
+                            name="comment"
+                            value={member.comment}
+                            onChange={(e) => handleFamilyMemberChange(index, e)}
+                            rows="3"
+                            placeholder="Skriv din matpreferens här"
+                        />
+                        </div>
+                    )}
+
+                    <button type="button" onClick={() => removeFamilyMember(index)}>
+                        Ta bort familjemedlem
+                    </button>
+                    </div>
+                ))}
+                <div className="rsvp-buttons">
+                    <button type="button" onClick={addFamilyMember}>
+                        Lägg till familjemedlem
+                    </button>
+            
+                    <button type="submit">Skicka RSVP</button>
+                </div>
+                </form>
+            )}
+            </div>
+            </div>
     </>
   );
 }

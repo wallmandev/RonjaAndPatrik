@@ -1,0 +1,172 @@
+/* Grundstil för tidslinjen */
+.wedding-party-timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 0;
+  }
+  
+  /* Stil för varje händelse */
+  .timeline-event {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .timeline-event.left {
+    justify-content: flex-start;
+    padding-left: 60px; /* Flyttar händelsen till vänster om linjen */
+  }
+  
+  .timeline-event.right {
+    justify-content: flex-end;
+    padding-right: 40px; /* Flyttar händelsen till höger om linjen */
+    text-align: right; /* Texten till höger */
+  }
+  .timeline-event.right-food {
+    justify-content: flex-end;
+    padding-right: 60px; /* Flyttar händelsen till höger om linjen */
+    text-align: right; /* Texten till höger */
+  }
+
+  .timeline-event.left.left-dinner {
+    justify-content: flex-start;
+    padding-left: 125px; /* Flyttar händelsen till vänster om linjen */
+  }
+
+  .timeline-event.right-cake {
+    justify-content: flex-end;
+    padding-right: 140px; /* Flyttar händelsen till höger om linjen */
+    text-align: right; /* Texten till höger */
+  }
+
+  .timeline-event.left.left-dance {
+    justify-content: flex-start;
+    padding-left: 80px; /* Flyttar händelsen till vänster om linjen */
+  }
+
+  .timeline-event.right-kids {
+    justify-content: flex-end;
+    padding-right: 140px; /* Flyttar händelsen till höger om linjen */
+    text-align: right; /* Texten till höger */
+  }
+
+  .timeline-event.left.left-wave {
+    justify-content: flex-start;
+    padding-left: 70px; /* Flyttar händelsen till vänster om linjen */
+  }
+  
+  /* Vertikala streck för varje händelse */
+  .timeline-event::before {
+    content: "";
+    position: absolute;
+    left: 400px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 2px;
+    background-color: #b56576; /* Färg för strecken */
+  }
+  
+  .timeline-event.right::before {
+    left: auto;
+    right: 400px;
+  }
+  .timeline-event.right-food::before {
+    left: auto;
+    right: 400px;
+  }
+  
+  /* Stil för tiden och händelsedetaljerna */
+  .event-time {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    color: #705d56;
+  }
+  
+  /* Flyttar tiden för högersidan till höger om händelsen */
+  .timeline-event.right .event-time {
+    order: 2; /* Ändrar ordningen för att placera tiden på höger sida */
+    margin-left: 1rem; /* Skapar mellanrum till vänster om tiden */
+    margin-right: 0;  /* Tar bort mellanrum till höger */
+  }
+  
+  .timeline-event.left .event-time {
+    margin-right: 1rem;
+  }
+  
+  .event-details {
+    background-color: #fff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+  }
+  
+  .event-description {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  /* Stil för ikoner */
+  .event-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+  }
+  
+  .event-icon img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Pseudo-element för vertikal linje */
+  .wedding-party-timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background-color: #b56576;
+    transform: translateX(-50%);
+  }
+  
+  /* Media queries för responsiv design */
+  @media only screen and (max-width: 900px) {
+    .timeline-event {
+      align-items: center; /* Centrerar händelserna */
+      margin-bottom: 2rem; /* Justerar avståndet */
+      text-align: center; /* Centrera texten */
+      padding-left: 0; /* Återställ padding */
+      padding-right: 0; /* Återställ padding */
+    }
+  
+    .timeline-event.right,
+    .timeline-event.right-food,
+    .timeline-event.right-cake,
+    .timeline-event.right-kids {
+      justify-content: center; /* Centrera högerhändelser */
+      padding-left: 0; /* Återställ padding */
+    }
+  
+    .timeline-event.left,
+    .timeline-event.left.left-dinner,
+    .timeline-event.left.left-dance,
+    .timeline-event.left.left-wave {
+      justify-content: center; /* Centrera vänsterhändelser */
+      padding-right: 0; /* Återställ padding */
+    }
+  
+    .wedding-party-timeline::before {
+      display: none;
+    }
+  
+    .timeline-event::before {
+      display: none;
+    }
+  }

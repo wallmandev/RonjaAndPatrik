@@ -1,20 +1,21 @@
 .rsvp-form {
-    background-color: #45ecc0;
-    color: #333;
-    padding: 40px;
-    max-width: 400px;
-    height: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
-    margin-top: 3rem;
-    margin-bottom: 5rem;
-    padding-bottom: 4rem;
-    border-radius: 8px;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  background-color: #fdf3f3; /* Mjuk rosa bakgrund */
+  color: #333;
+  padding: 40px;
+  margin: 4rem 0 0 0;
+  max-width: 450px;
+  border-radius: 15px; /* Rundade hörn */
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15); /* Mjuk skugga */
+  font-family: 'Josefin Sans', sans-serif;
+  position: relative;
+
 
     &__header{
       font-family: 'BrittanySignature', sans-serif;
-      font-weight: bold;
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: rgb(97, 119, 112);
     }
 }
 
@@ -31,7 +32,9 @@
       align-items: center;
       flex-direction: column;
       flex-shrink: 0;
+      margin: 1rem 0 1rem 0;
       margin-top: 5rem;
+      color: #111111;
 }
 
 .content-header{
@@ -51,42 +54,46 @@
   label {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 1.1rem;
-    color: rgb(97, 119, 112);;
+    color: #705d56; /* Mjuk brunrosa färg */
   }
   
   input, select, textarea {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    font-family: 'Open Sans', sans-serif;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Mjuka hörn */
+    margin-bottom: 15px;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 1rem;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Liten inre skugga */
     }
   
   input:focus, select:focus, textarea:focus {
-    border-color: #b56576;
+    border-color: #b56576; /* Fokusfärg */
     outline: none;
+    box-shadow: 0px 0px 5px rgba(181, 101, 118, 0.5); /* Fokus skugga */
   }
 
 .rsvp-buttons{
-    display: flex;
-    gap: 2rem;
+  display: flex;
+  gap: 2rem;
 }
   
   button {
-    background-color: #b56576;
+    background-color: #b56576; /* Djupt rosa */
     color: white;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 16px;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px; /* Rundade hörn på knapparna */
     cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Lätt skugga */
+    transition: background-color 0.3s ease; /* Smidig övergång på hover */
   }
   
   button:hover {
-    background-color: #6b705c;
+    background-color: #a34d5d; /* Mörkare färg vid hover */
   }
 
   p{
@@ -102,11 +109,12 @@
     resize: vertical;
   }
   
-.thank-you-message {
+  .thank-you-message {
     text-align: center;
     font-family: 'Great Vibes', cursive;
     color: #b56576;
     font-size: 2rem;
+    margin-top: 2rem;
 }
   
   .thank-you-message {
@@ -119,19 +127,23 @@
   font-size: 1.5rem;
 }
 
+/* Media Queries */
 @media only screen and (max-width: 1450px) {
-  /* CSS-regler för skärmar med max 768px bredd (t.ex. surfplattor eller mobiler) */
   .content-inner {
       max-width: 500px;
+  }
+
+  .rsvp-form{
+    margin-bottom: 4rem;
   }
 }
 
 @media only screen and (max-width: 1367px){
-  .content-container{
-      display: flex;
+  .content-container {
       flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 1rem;
+      margin: 0 1rem;
   }
 }
