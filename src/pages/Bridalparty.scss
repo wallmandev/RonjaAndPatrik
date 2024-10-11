@@ -1,0 +1,75 @@
+.bridalparty {
+    &-inner {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 1.5rem;
+      align-items: center;
+      justify-content: center;
+      margin: 0 8rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+  
+      &.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+  
+      &__member {
+        h2 {
+          font-family: 'BrittanySignature', sans-serif;
+          font-size: 2.5rem;
+        }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-bottom: 2rem;
+  
+        &-info {
+          text-align: center;
+          font-family: 'Josefin Sans', cursive;
+  
+          a {
+            position: relative;
+            text-decoration: none;
+            color: #214f1c;
+            padding: 5px 10px;
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+          }
+          
+          a::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: rgb(97, 119, 112);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            z-index: 99;
+            pointer-events: none;
+          }
+          
+          a:hover::after {
+            width: 100%;
+          }
+          
+          a:hover {
+            color: rgb(97, 119, 112);
+          }
+        }
+  
+        &-img {
+          width: 250px;
+          height: 250px;
+          border-radius: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+  

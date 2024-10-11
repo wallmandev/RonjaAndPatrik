@@ -1,193 +1,57 @@
-@font-face {
-    font-family: 'BrittanySignature';
-    src: url('/RonjaAndPatrik/fonts/BrittanySignature.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
+.scroll-down {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    bottom: 80px; /* Placera längst ner på sidan */
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+  }
+  
+  .arrow {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-bottom: 2px solid #111; /* Färgen på pilen */
+    border-right: 2px solid #111;
+    transform: rotate(45deg); /* Gör det till en pil */
+    animation: moveArrow 1.5s infinite;
+  }
+  
+  /* Separera translation från rotationen */
+  @keyframes moveArrow {
+    0% {
+      transform: translateY(0) rotate(45deg); /* Börja på ursprunglig plats */
+    }
+    50% {
+      transform: translateY(10px) rotate(45deg); /* Flytta pilen nedåt */
+    }
+    100% {
+      transform: translateY(0) rotate(45deg); /* Tillbaka till ursprunglig plats */
+    }
+  }
+  
+  
+
 .hero {
     width: 100vw;
-    height: 100vh;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     overflow: hidden;
 
-    &-image1{
-        
-
-        &__item1{
-            width: 650px;
-            right: -7%;
-            top: 0;
-            position: absolute;
-        }
-
-        @media only screen and (max-width: 1150px) {
-            .hero-image1__item1 {
-                right: -7rem;
-                top: 0;
-            }
-        }
-        @media only screen and (max-width: 680px){
-            .hero-image1__item1{
-                width: 400px;
-                left: 50%;
-                top: 2rem;
-            }
-        }
-        @media only screen and (max-width: 550px){
-            .hero-image1__item1{
-                width: 400px;
-                left: 40%;
-                top: 2rem;
-            }
-        }
-        @media only screen and (max-width: 450px){
-            .hero-image1__item1{
-                width: 400px;
-                left: 28%;
-                top: 1rem;
-            }
-        }
-        @media only screen and (max-height: 700px) {
-            .hero-image1__item1 {
-                width: 400px;
-                left: 35%;
-                top: -1rem;
-            }
-        }
-        
-        @media only screen and (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
-            .hero-image1__item1 {
-                width: 500px;
-                left: 71%;
-                opacity: 100;
-            }
-        }
-        @media only screen and (min-width: 820px) and (max-width: 1180px) and (orientation: landscape) {
-            .hero-image1__item1 {
-                width: 500px;
-                left: 66%;
-                opacity: 100;
-            }
-        }
-    }
-    &-image2{
-        transform: scaleX(-1);
-        position: relative;
-
-        &__item2{
-            transform: scaleY(-1);
-            width: 650px;
-            position: absolute;
-            left: 89rem;
-            top: -8rem;
-        }
-        @media only screen and (max-width: 1800px) {
-            .hero-image2__item2 {
-                left: 78rem;
-                top: -8rem;
-            }
-        }
-        @media only screen and (max-width: 1600px) {
-            .hero-image2__item2 {
-                left: 66rem;
-                top: -8rem;
-            }
-        }
-        @media only screen and (max-width: 1450px) {
-            .hero-image2__item2 {
-                left: 59rem;
-                width: 600px;
-                top: -13rem;
-            }
-        }
-        @media only screen and (max-width: 1290px) {
-            .hero-image2__item2 {
-                left: 47rem;
-                top: -8rem;
-            }
-        }
-        @media only screen and (max-width: 1100px) {
-            .hero-image2__item2 {
-                left: 37rem;
-                top: -8rem;
-            }
-        }
-        @media only screen and (max-width: 995px) {
-            .hero-image2__item2 {
-                left: 30rem;
-                top: -8rem;
-            }
-        }
-        @media only screen and (max-width: 900px) {
-            .hero-image2__item2 {
-                left: 25rem;
-                top: -8rem;
-            }
-        }
-        @media only screen and (max-width: 800px) {
-            .hero-image2__item2 {
-                left: 18rem;
-                top: -8rem;
-            }
-        }
-        @media only screen and (max-width: 680px) {
-            .hero-image2__item2 {
-                width: 400px;
-                left: 22rem;
-                top: 2rem;
-            }
-        }
-        @media only screen and (max-width: 600px) {
-            .hero-image2__item2 {
-                width: 400px;
-                left: 18rem;
-                top: 2rem;
-            }
-        }
-        @media only screen and (max-width: 550px) {
-            .hero-image2__item2 {
-                width: 400px;
-                left: 14rem;
-                top: 3rem;
-            }
-        }
-        @media only screen and (max-width: 450px) {
-            .hero-image2__item2 {
-                width: 400px;
-                left: 8rem;
-                top: 1rem;
-            }
-        }
-        @media only screen and (max-height: 700px) {
-            .hero-image2__item2 {
-                width: 400px;
-                left: 7rem;
-                top: -1rem;
-            }
-        }
-        
-        @media only screen and (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
-            .hero-image2__item2 {
-                width: 500px;
-                left: 60rem;
-                opacity: 100;
-            }
-        }
-    }
-    
-    @media only screen and (min-width: 820px) and (max-width: 1180px) and (orientation: landscape) {
-        .hero-image2__item2 {
-            width: 500px;
-            left: 50rem;
-            opacity: 100;
-        }
-    }
-    /* Första sektionen: Bilder och text */
     &--first {
-        background-color: #f0f0f0;
+        opacity: 0;
+        transform: translateY(100px); /* Skjuter ner den första sektionen lite */
+        transition: opacity 0.5s ease, transform 0.5s ease;
+
+        &.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         .hero-inner {
             width: 100%;
@@ -196,41 +60,63 @@
             justify-content: center;
             align-items: center;
             position: relative;
-        }
 
-        .hero-inner__image-container {
-            display: flex; /* Lägger bilderna bredvid varandra */
-            width: 100%;
-            height: 100%;
-
-            .hero-inner__image-item {
-                width: 50%; /* Anpassar sig efter förälderns bredd */
-                height: auto; /* Låter höjden anpassa sig till bredden */
-                object-fit: cover;
-                -webkit-object-fit: cover; /* För Safari */
+            &__image-container {
+                width: 98vw;
+                height: 100%;
+                position: absolute; /* Bilden ligger bakom texten */
+                z-index: 1; /* Lägre z-index än texten */
             }
-            
-        }
 
-        .hero-inner__topic {
-            position: absolute; /* Placera texten ovanpå bilderna */
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%); /* Centrerar texten */
-            color: white;
-            font-family: 'BrittanySignature', sans-serif;
-            font-size: 8rem;
-            width: 100%;
-            margin: 1rem 0rem 1rem 0rem;
-            z-index: 10; /* Placera texten ovanpå */
-            text-align: center;
+            &__topic {
+                position: absolute;
+                top: 5%;
+                left: 50%; /* Centrera horisontellt */
+                transform: translate(-50%, -50%); /* För att säkerställa att texten är centrerad */
+                color: #fff;
+                font-family: 'BrittanySignature', sans-serif;
+                font-size: 6rem;
+                max-width: 90vw;
+                width: 100%;
+                text-align: center;
+                opacity: 1;
+                z-index: 10; /* Se till att texten visas över bilden */
+                transition: opacity 1s ease-out, transform 1s ease-out;
+            }
+
+            &.fade-in {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
         }
     }
 
-    /* Andra sektionen: Namnen */
     &--second {
         box-sizing: content-box;
-        background-color: #ffffff;
+        height: 100vh;
+        opacity: 1;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+
+        &.hidden {
+            opacity: 0;
+            display: none;
+        }
+
+        .hero-inner__topic{
+
+            &-ronja,
+            &-patrik{
+                font-family: 'BrittanySignature', sans-serif;
+                font-size: 4rem;
+                font-weight: 100;
+            }
+
+            &-and {
+                font-family: 'Josefin Sans', cursive;
+                font-weight: 600;
+                font-size: 1.5rem;
+            }
+        }
 
         .hero-inner__content {
             display: flex;
@@ -240,69 +126,221 @@
             text-align: center;
             height: 100%;
             width: 100%;
-            padding: 2rem; /* Lägg till lite padding för bättre spacing på små skärmar */
-            color: #111111;
+            padding: 2rem;
+            color: #111;
+
+            @media only screen and (max-width: 768px) {
+                padding: 1rem;
+            }
+
+            &__topic-patrik {
+                margin-top: 1rem;
+            }
+
+            &__topic-and {
+                font-family: 'Josefin Sans', cursive;
+                font-weight: 600;
+                font-size: 1.5rem;
+            }
         }
-        
-        @media only screen and (max-width: 768px) {
-            .hero-inner__content {
-                padding: 1rem; /* Minska padding på mobiler */
+    }
+
+    &-randp {
+        object-fit: cover;
+        width: 100%;
+        height: 90vh;
+        border-radius: 20px;
+    }
+
+
+    &-image1 {
+        &__item1 {
+            width: 600px;
+            right: -7%;
+            top: -3rem;
+            position: absolute;
+            transform: none;
+            transition: all 0.3s ease;
+            object-fit: cover; /* För att säkerställa att bilden skalas korrekt */
+            
+            
+            @media only screen and (max-width: 1250px) {
+                position: absolute;
+                width: 500px;
+                left: 66%;
+                top: -2rem;
+            }
+            
+            @media only screen and (max-width: 1000px) {
+                position: absolute;
+                width: 350px;
+                left: 70%;
+                top: 0;
+            }
+
+            @media only screen and (max-width: 800px) {
+                width: 350px;
+                left: 64%;
+            }
+            
+            @media only screen and (max-width: 650px) {
+                width: 350px;
+                left: 55%;
+            }
+
+            @media only screen and (max-width: 550px) {
+                width: 350px;
+                left: 47%;
+            }
+
+            @media only screen and (max-width: 450px) {
+                width: 350px;
+                top: -2rem;
+                left: 40%;
+            }
+
+            @media only screen and (max-width: 350px) {
+                width: 350px;
+                top: -1rem;
+                left: 38%;
             }
         }
 
-        .hero-inner__topic-ronja,
-        .hero-inner__topic-patrik {
-            font-family: 'BrittanySignature', sans-serif;
-            font-size: 4rem;
-            font-weight: 100;
-        }
+        // @media only screen and (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
+        //     // width: 500px;
+        //     left: 71%;
+        //     opacity: 100;
+        // }
 
-        .hero-inner__topic-patrik{
-            margin-top: 1rem;
-        }
-
-        .hero-inner__topic-and {
-            font-family: 'Josefin Sans', cursive;
-            font-weight: 600;
-            font-size: 1.5rem;
-        }
-    }
-}
-
-@media only screen and (max-width: 1450px) {
-    /* CSS-regler för skärmar med max 768px bredd (t.ex. surfplattor eller mobiler) */
-    .hero-image1__item1 {
-        width: 600px;
-        right: -8%;
+        // @media only screen and (min-width: 820px) and (max-width: 1180px) and (orientation: landscape) {
+        //     // width: 500px;
+        //     left: 66%;
+        //     opacity: 100;
+        // }
     }
 
-}
+        
 
-@media only screen and (max-width: 1367px){
+    &-image2 {
+        transform: scaleX(-1);
+        position: relative;
+
+        &__item2 {
+            width: 600px;
+            position: absolute;
+            left: 59rem;
+            top: -12rem;
+            transition: all 0.3s ease;
+            object-fit: cover; /* För att säkerställa att bilden skalas korrekt */
+            transform: scaleY(-1);
+            
+            
+            @media only screen and (max-width: 1350px) {
+                width: 500px;
+                left: 56rem;
+                top: -6rem;
+            }
+            @media only screen and (max-width: 1250px) {
+                width: 500px;
+                left: 52rem;
+                top: -6rem;
+            }
+            @media only screen and (max-width: 1130px) {
+                width: 500px;
+                left: 45rem;
+                top: -6rem;
+            }
     
-    .hero--first .hero-inner__topic{
-        font-size: 6rem;
+            @media only screen and (max-width: 1000px) {
+                width: 350px;
+                left: 43rem;
+                top: 0;
+            }
+    
+            @media only screen and (max-width: 880px) {
+                // width: 400px;
+                left: 36rem;
+                top: 2rem;
+            }
+
+            @media only screen and (max-width: 800px) {
+                // width: 400px;
+                left: 32rem;
+                top: 2rem;
+            }
+            @media only screen and (max-width: 730px) {
+                // width: 400px;
+                left: 27rem;
+                top: 2rem;
+            }
+            
+            @media only screen and (max-width: 650px) {
+                // width: 400px;
+                left: 22rem;
+                top: 2rem;
+            }
+
+            @media only screen and (max-width: 550px) {
+                // width: 400px;
+                left: 16rem;
+                top: 2rem;
+            }
+
+            @media only screen and (max-width: 450px) {
+                // width: 400px;
+                left: 10rem;
+                top: -1rem;
+            }
+
+            @media only screen and (max-width: 350px) {
+                // width: 400px;
+                left: 8rem;
+                top: 2rem;
+            }
+            
+        } 
+
+        }
     }
 
+
+@media only screen and (max-width: 867px) {
+    .hero--first .hero-inner__topic{
+        font-size: 4rem;
+    }
 }
 
-@media only screen and (max-width: 800px){
-    .hero-inner__image-item2{
+/* Anpassa för mindre skärmar */
+@media only screen and (max-width: 800px) {
+    .hero-randp {
+        position: relative;
+        object-fit: cover;
+        object-position: 21% 0%;
+        height: 90vh;
+    }
+
+    .hero-inner__image-item2 {
         display: none;
     }
 
-    .hero--first .hero-inner__image-container .hero-inner__image-item{
+    .hero--first .hero-inner__image-container .hero-inner__image-item {
         width: 100%;
     }
 
-    .hero-inner__topic{
-        font-size: 5rem !important;
-    } 
-
-    .hero-inner__topic-ronja{
-        font-size: 3rem !important;
+    .hero-inner__topic {
+        font-size: 2.5rem !important;
     }
-    .hero-inner__topic-patrik{
+
+    .hero-inner__topic-ronja,
+    .hero-inner__topic-patrik {
         font-size: 3rem !important;
     }
 }
+
+@font-face {
+    font-family: 'BrittanySignature';
+    src: url('/RonjaAndPatrik/fonts/BrittanySignature.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+

@@ -1,36 +1,286 @@
-import React from "react";
-import './Schedule.scss'
+import React, { useRef, useEffect } from "react";
+import './Wedding.scss'
 
-function Schedule() {
-    return(
-        <>
-            <div className="container">
-                <div className="container-inner">
-                    <section className="schedule">
-                        <div className="schedule-header">
-                            <h1 className="schedule-header__item">Saturday, May 31, 2025</h1>
-                        </div>
-                        <div className="schedule-subheader">
-                            <h2 className="schedule-subheader__item">We are getting married!</h2>
-                            <h4 className="schedule-subheader__time">2:00 PM</h4>
-                        </div>
-                        <div className="schedule-area">
-                            <h4 className="schedule-area__adress">Lillegård</h4>
-                            <a className="schedule-area__link" href="https://www.google.com/maps/place/Sk%C3%A5ne+l%C3%A4n,+Fredriksrov%C3%A4gen+85,+244+91+K%C3%A4vlinge/@55.8029807,13.2059811,17z/data=!3m1!4b1!4m6!3m5!1s0x4653be3268980521:0xac1f0ba950cb10bc!8m2!3d55.8029807!4d13.2059811!16s%2Fg%2F11c134mm8y?entry=ttu&g_ep=EgoyMDI0MDkwNC4wIKXMDSoASAFQAw%3D%3D" 
-                            target="_blank" 
-                            rel="noopener noreferrer">85 Fredriksrovägen, Skåne län 244 91, Sweden</a>
-                            <div className="schedule-area__cont">
-                                <p className="schedule-area__paragraph">Dresscode: something you fell pretty in, we are imagining a garden party. But we are going to be outside, so maybe rethink heels</p>
-                            </div>
-                        </div>
-                        <div className="schedule-image">
-                            <img className="schedule-image__item" src={`${import.meta.env.BASE_URL}images/Untitled (500 x 500 px).svg`}></img>
-                        </div>
-                    </section>
-                </div>
+
+function Wedding() {
+  const eventsRef = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target); // Stop observing after fade-in
+          }
+        });
+      },
+      {
+        threshold: 0.1, // 10% av elementet måste vara synligt
+      }
+    );
+
+    eventsRef.current.forEach(event => {
+      if (event) {
+        observer.observe(event);
+      }
+    });
+
+    return () => {
+      eventsRef.current.forEach(event => {
+        if (event) {
+          observer.unobserve(event);
+        }
+      });
+    };
+  }, []);
+
+  return (
+    <>
+      <section className="wedding-party-timeline">
+        <div className="wedding-party-timeline__inner">
+
+          <img className="schedule-flower1" src="./images/Untitled (500 x 500 px).png" alt=""/>
+          
+          <div className="timeline-event left" ref={el => eventsRef.current[0] = el}>
+            <p className="event-time">13:30</p>
+            <div className="event-details">
+              <div className="event-icon">
+                <img src="./images/guests.png" alt="Guests Arrival" />
+              </div>
+              <p className="event-description">Guests Arrival</p>
             </div>
-        </>
-    )
+          </div>
+
+          <div className="timeline-event right" ref={el => eventsRef.current[1] = el}>
+            <p className="event-time">14:00</p>
+            <div className="event-details">
+              <div className="event-icon">
+                <img src="./images/arch.png" alt="Groom Arrival" />
+              </div>
+              <p className="event-description">Ceremony starts</p>
+            </div>
+          </div>
+
+          <div className="timeline-event left" ref={el => eventsRef.current[2] = el}>
+            <p className="event-time">14:30</p>
+            <div className="event-details">
+              <div className="event-icon">
+                <img src="./images/dice.png" alt="Bride Arrival" />
+              </div>
+              <p className="event-description">Garden games</p>
+            </div>
+          </div>
+
+          <div className="timeline-event right right-food" ref={el => eventsRef.current[3] = el}>
+            <p className="event-time">16:30</p>
+            <div className="event-details">
+              <div className="event-icon">
+                <img src="./images/table.png" alt="Find your seat" />
+              </div>
+              <p className="event-description">Find your seat</p>
+            </div>
+          </div>
+
+          <div className="schedule-flower2__container">
+            <img className="schedule-flower2" src="./images/Untitled (500 x 500 px).png" alt=""/>
+          </div>
+
+          <div className="timeline-event left left-dinner" ref={el => eventsRef.current[4] = el}>
+            <p className="event-time">17:00</p>
+            <div className="event-details">
+              <div className="event-icon">
+                <img src="./images/serving-dish.png" alt="Dinner" />
+              </div>
+              <p className="event-description">Dinner</p>
+            </div>
+          </div>
+
+          <div className="timeline-event right right-cake" ref={el => eventsRef.current[5] = el}>
+            <p className="event-time">19:30</p>
+            <div className="event-details">
+              <div className="event-icon">
+                <img src="./images/wedding-cake.png" alt="Cake" />
+              </div>
+              <p className="event-description">Cake</p>
+            </div>
+          </div>
+
+          <div className="timeline-event left left-dance" ref={el => eventsRef.current[6] = el}>
+            <p className="event-time">20:00</p>
+            <div className="event-details">
+              <div className="event-icon">
+                <img src="./images/dance.png" alt="First Dance" />
+              </div>
+              <p className="event-description">First dance</p>
+            </div>
+          </div>
+
+          <div className="timeline-event right right-kids" ref={el => eventsRef.current[7] = el}>
+            <p className="event-time">21:00</p>
+            <div className="event-details">
+              <div className="event-icon">
+                <img src="./images/children.png" alt="Kids Free" />
+              </div>
+              <p className="event-description">Kids free</p>
+            </div>
+          </div>
+
+          <div className="timeline-event left left-wave" ref={el => eventsRef.current[8] = el}>
+            <p className="event-time">00:00</p>
+            <div className="event-details">
+              <div className="event-icon">
+                <img src="./images/just-married.png" alt="Wave us off" />
+              </div>
+              <p className="event-description">Wave us off</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
 }
 
-export default Schedule;
+export default Wedding;
+
+// import React, { useRef, useEffect } from "react";
+// import './Wedding.scss'
+
+
+// function Wedding() {
+//   const eventsRef = useRef([]);
+
+//   useEffect(() => {
+//     const observer = new IntersectionObserver(
+//       entries => {
+//         entries.forEach(entry => {
+//           if (entry.isIntersecting) {
+//             entry.target.classList.add('visible');
+//           }
+//         });
+//       },
+//       {
+//         threshold: 0.1, // 10% av elementet måste vara synligt
+//       }
+//     );
+
+//     eventsRef.current.forEach(event => {
+//       if (event) {
+//         observer.observe(event);
+//       }
+//     });
+
+//     return () => {
+//       eventsRef.current.forEach(event => {
+//         if (event) {
+//           observer.unobserve(event);
+//         }
+//       });
+//     };
+//   }, []);
+
+//   return (
+//     <>
+//       <section className="wedding-party-timeline">
+
+//         <img className="schedule-flower1" src="./public/images/Untitled (500 x 500 px).svg" alt=""/>
+//         <div className="timeline-event left" ref={el => eventsRef.current[0] = el}>
+//           <p className="event-time">13:30</p>
+//           <div className="event-details">
+//             <div className="event-icon">
+//               <img src="./images/guests.png" alt="Guests Arrival" />
+//             </div>
+//             <p className="event-description">Guests Arrival</p>
+//           </div>
+//         </div>
+
+//         <div className="timeline-event right" ref={el => eventsRef.current[1] = el}>
+//           <p className="event-time">14:00</p>
+//           <div className="event-details">
+//             <div className="event-icon">
+//               <img src="./images/arch.png" alt="Groom Arrival" />
+//             </div>
+//             <p className="event-description">Ceremony starts</p>
+//           </div>
+//         </div>
+
+//         <div className="timeline-event left" ref={el => eventsRef.current[2] = el}>
+//           <p className="event-time">14:30</p>
+//           <div className="event-details">
+//             <div className="event-icon">
+//               <img src="./images/dice.png" alt="Bride Arrival" />
+//             </div>
+//             <p className="event-description">Garden games</p>
+//           </div>
+//         </div>
+
+//         <div className="timeline-event right right-food" ref={el => eventsRef.current[3] = el}>
+//           <p className="event-time">16:30</p>
+//           <div className="event-details">
+//             <div className="event-icon">
+//               <img src="./images/table.png" alt="Bride Arrival" />
+//             </div>
+//             <p className="event-description">Find your seat</p>
+//           </div>
+//         </div>
+
+//         <div className="schedule-flower2__container">
+//           <img className="schedule-flower2" src="./public/images/Untitled (500 x 500 px).svg" alt=""/>
+//         </div>
+
+//         <div className="timeline-event left left-dinner" ref={el => eventsRef.current[4] = el}>
+//           <p className="event-time">17:00</p>
+//           <div className="event-details">
+//             <div className="event-icon">
+//               <img src="./images/serving-dish.png" alt="Bride Arrival" />
+//             </div>
+//             <p className="event-description">Dinner</p>
+//           </div>
+//         </div>
+
+//         <div className="timeline-event right right-cake" ref={el => eventsRef.current[4] = el}>
+//           <p className="event-time">19:30</p>
+//           <div className="event-details">
+//             <div className="event-icon">
+//               <img src="./images/wedding-cake.png" alt="Bride Arrival" />
+//             </div>
+//             <p className="event-description">Cake</p>
+//           </div>
+//         </div>
+
+//         <div className="timeline-event left left-dance" ref={el => eventsRef.current[4] = el}>
+//           <p className="event-time">20:00</p>
+//           <div className="event-details">
+//             <div className="event-icon">
+//               <img src="./images/dance.png" alt="Bride Arrival" />
+//             </div>
+//             <p className="event-description">First dance</p>
+//           </div>
+//         </div>
+
+//         <div className="timeline-event right right-kids" ref={el => eventsRef.current[4] = el}>
+//           <p className="event-time">21:00</p>
+//           <div className="event-details">
+//             <div className="event-icon">
+//               <img src="./images/children.png" alt="Bride Arrival" />
+//             </div>
+//             <p className="event-description">Kids free</p>
+//           </div>
+//         </div>
+
+//         <div className="timeline-event left left-wave" ref={el => eventsRef.current[4] = el}>
+//           <p className="event-time">00:00</p>
+//           <div className="event-details">
+//             <div className="event-icon">
+//               <img src="./images/just-married.png" alt="Bride Arrival" />
+//             </div>
+//             <p className="event-description">Wave us off</p>
+//           </div>
+//         </div>
+
+//       </section>
+//     </>
+//   );
+// }
+
+// export default Wedding;

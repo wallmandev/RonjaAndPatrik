@@ -2,198 +2,85 @@ import React, { useState, useEffect } from 'react';
 import './Header.scss';
 import { Link } from 'react-router-dom';
 
-function Header() {
-    // Håll koll på vilken länk som är aktiv
+function Header({ headerVisible }) {
     const [activeIndex, setActiveIndex] = useState(null);
-    const [isMenuOpen, setIsMenuOpen] = useState(false); // Hantera hamburgarmenyns öppna/stängda status
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const handleLinkClick = (index) => {
-      setActiveIndex(index); // Sätt aktiv länk till indexet för den klickade länken
-      setIsMenuOpen(false); // Stäng hamburgarmenyn när en länk klickas
+        setActiveIndex(index);
+        setIsMenuOpen(false);
     };
 
     const toggleMenu = () => {
-      setIsMenuOpen(!isMenuOpen); // Växla mellan öppet och stängt för hamburgarmenyn
+        setIsMenuOpen(!isMenuOpen);
     };
 
-    // Förhindra scrollning när menyn är öppen
     useEffect(() => {
-      if (isMenuOpen) {
-        document.body.style.overflow = 'hidden';
-      } else {
-        document.body.style.overflow = 'auto';
-      }
+        if (isMenuOpen) {
+            document.body.style.overflow = 'hidden';  // Förhindra scroll när menyn är öppen
+        } else {
+            document.body.style.overflow = 'auto';    // Tillåt scroll när menyn är stängd
+        }
     }, [isMenuOpen]);
 
     return (
-      <section className="header">
-        <div className="header-inner">
-            <div className="header-topic">
-                <h2 className="header-topic__content">Ronja & Patrik</h2>
+        <section className={`header header-wedding ${headerVisible ? 'visible' : 'hidden'}`}>
+            <div className="header-inner">
+                <div className="header-topic">
+                    <h2 className="header-topic__content">Ronja & Patrik</h2>
+                </div>
+                <div className="header-date">
+                    <h3>31 of May 2025</h3>
+                </div>
+                <nav className="header-nav">
+                    <div className="header-hamburger" onClick={toggleMenu}>
+                        &#9776;  {/* Hamburger-ikon */}
+                    </div>
+                    <ul className={`header-nav__item ${isMenuOpen ? 'hide' : ''}`}>
+                        <li className={`header-nav__items ${activeIndex === 0 ? 'active' : ''}`} onClick={() => handleLinkClick(0)}>
+                            <Link to="/" className="header-nav__links">Home</Link>
+                        </li>
+                        <li className={`header-nav__items ${activeIndex === 5 ? 'active' : ''}`} onClick={() => handleLinkClick(5)}>
+                            <Link to="/qanda" className="header-nav__links">Q&A</Link>
+                        </li>
+                        <li className={`header-nav__items ${activeIndex === 1 ? 'active' : ''}`} onClick={() => handleLinkClick(1)}>
+                            <Link to="/schedule" className="header-nav__links">Schedule</Link>
+                        </li>
+                        <li className={`header-nav__items ${activeIndex === 2 ? 'active' : ''}`} onClick={() => handleLinkClick(2)}>
+                            <Link to="/wedding-party" className="header-nav__links">Venue</Link>
+                        </li>
+                        <li className={`header-nav__items ${activeIndex === 3 ? 'active' : ''}`} onClick={() => handleLinkClick(3)}>
+                            <Link to="/bridal-party" className="header-nav__links">Bridal Party</Link>
+                        </li>
+                        <li className={`header-nav__items ${activeIndex === 4 ? 'active' : ''}`} onClick={() => handleLinkClick(4)}>
+                            <Link to="/rsvp" className="header-nav__links">RSVP</Link>
+                        </li>
+                    </ul>
+                    <div className={`header-overlay ${isMenuOpen ? 'open' : ''}`}>
+                        <button className="header-overlay__close" onClick={toggleMenu}>
+                            &#10005;  {/* X-ikon */}
+                        </button>
+                        <ul>
+                            <div className="header-nav__flower">
+                            <img src={`${import.meta.env.BASE_URL}images/Untitled (500 x 500 px).png`} alt="flowers" className="header-nav__flower-overlay" />
+                            </div> 
+                            <li className="header-nav__items"><Link to="/" className="header-nav__hamb" onClick={toggleMenu}>Home</Link></li>
+                            <li className="header-nav__items"><Link to="/qanda" className="header-nav__hamb" onClick={toggleMenu}>Q&A</Link></li>
+                            <li className="header-nav__items"><Link to="/schedule" className="header-nav__hamb" onClick={toggleMenu}>Schedule</Link></li>
+                            <li className="header-nav__items"><Link to="/wedding-party" className="header-nav__hamb" onClick={toggleMenu}>Venue</Link></li>
+                            <li className="header-nav__items"><Link to="/bridal-party" className="header-nav__hamb" onClick={toggleMenu}>Bridal Party</Link></li>
+                            <li className="header-nav__items"><Link to="/rsvp" className="header-nav__hamb" onClick={toggleMenu}>RSVP</Link></li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
-            <nav className="header-nav">
-              <div className="header-hamburger" onClick={toggleMenu}>
-                &#9776;  {/* Hamburger-ikon */}
-              </div>
-              <ul className={`header-nav__item ${isMenuOpen ? 'hide' : ''}`}> {/* Korrekt klassnamn för den vanliga menyn */}
-                <li
-                  className={`header-nav__items ${activeIndex === 0 ? 'active' : ''}`}
-                  onClick={() => handleLinkClick(0)}
-                >
-                  <Link to="/" className="header-nav__links">Home</Link>
-                </li>
-                <li
-                  className={`header-nav__items ${activeIndex === 1 ? 'active' : ''}`}
-                  onClick={() => handleLinkClick(1)}
-                >
-                  <Link to="/schedule" className="header-nav__links">Schedule</Link>
-                </li>
-                <li
-                  className={`header-nav__items ${activeIndex === 2 ? 'active' : ''}`}
-                  onClick={() => handleLinkClick(2)}
-                >
-                  <Link to="/wedding-party" className="header-nav__links">Wedding Party</Link>
-                </li>
-                <li
-                  className={`header-nav__items ${activeIndex === 3 ? 'active' : ''}`}
-                  onClick={() => handleLinkClick(3)}
-                >
-                  <Link to="/rsvp" className="header-nav__links">RSVP</Link>
-                </li>
-              </ul>
-              <div className={`header-overlay ${isMenuOpen ? 'open' : ''}`}>
-                <button className="header-overlay__close" onClick={toggleMenu}>
-                  &#10005;  {/* X-ikon */}
-                </button>
-                <ul>
-                  <li className="header-nav__items"><Link to="/" onClick={toggleMenu}>Home</Link></li>
-                  <li className="header-nav__items"><Link to="/schedule" onClick={toggleMenu}>Schedule</Link></li>
-                  <li className="header-nav__items"><Link to="/wedding-party" onClick={toggleMenu}>Wedding Party</Link></li>
-                  <li className="header-nav__items"><Link to="/rsvp" onClick={toggleMenu}>RSVP</Link></li>
-                </ul>
-              </div>
-            </nav>
-        </div>
-      </section>
+        </section>
     );
 }
 
 export default Header;
 
-// import React, { useState } from 'react';
-// import './Header.scss';
-// import { Link } from 'react-router-dom';
 
-// function Header() {
-//     // Håll koll på vilken länk som är aktiv
-//     const [activeIndex, setActiveIndex] = useState(null);
-//     const [isMenuOpen, setIsMenuOpen] = useState(false); // Hantera hamburgarmenyns öppna/stängda status
-  
-//     const handleLinkClick = (index) => {
-//       setActiveIndex(index); // Sätt aktiv länk till indexet för den klickade länken
-//       setIsMenuOpen(false); // Stäng hamburgarmenyn när en länk klickas
-//     };
 
-//     const toggleMenu = () => {
-//       setIsMenuOpen(!isMenuOpen); // Växla mellan öppet och stängt för hamburgarmenyn
-//     };
-  
-//     return (
-//       <section className="header">
-//         <div className="header-inner">
-//             <div className="header-topic">
-//                 <h2 className="header-topic__content">Ronja & Patrik</h2>
-//             </div>
-//           <nav className="header-nav">
-//             <div className="header-hamburger" onClick={toggleMenu}>
-//               &#9776;  {/* Hamburger-ikon */}
-//             </div>
-//             <div className={`header-overlay ${isMenuOpen ? 'open' : ''}`}>
-//               <ul>
-//                 <li
-//                   className={`header-nav__items ${activeIndex === 0 ? 'active' : ''}`}
-//                   onClick={() => handleLinkClick(0)}
-//                 >
-//                   <Link to="/" className="header-nav__links">Home</Link>
-//                 </li>
-//                 <li
-//                   className={`header-nav__items ${activeIndex === 1 ? 'active' : ''}`}
-//                   onClick={() => handleLinkClick(1)}
-//                 >
-//                   <Link to="/schedule" className="header-nav__links">Schedule</Link>
-//                 </li>
-//                 <li
-//                   className={`header-nav__items ${activeIndex === 2 ? 'active' : ''}`}
-//                   onClick={() => handleLinkClick(2)}
-//                 >
-//                   <Link to="/wedding-party" className="header-nav__links">Wedding Party</Link>
-//                 </li>
-//                 <li
-//                   className={`header-nav__items ${activeIndex === 3 ? 'active' : ''}`}
-//                   onClick={() => handleLinkClick(3)}
-//                 >
-//                   <Link to="/rsvp" className="header-nav__links">RSVP</Link>
-//                 </li>
-//               </ul>
-//             </div>
-//           </nav>
-//         </div>
-//       </section>
-//     );
-// }
 
-// export default Header;
 
-// import React, { useState } from 'react';
-// import './Header.scss';
-// import { Link } from 'react-router-dom';
-// import Schedule from './pages/Schedule';
-
-// function Header() {
-//     // Håll koll på vilken länk som är aktiv
-//     const [activeIndex, setActiveIndex] = useState(null);
-  
-//     const handleLinkClick = (index) => {
-//       setActiveIndex(index); // Sätt aktiv länk till indexet för den klickade länken
-//     };
-  
-//     return (
-//       <section className="header">
-//         <div className="header-inner">
-//             <div className="header-topic">
-//                 <h2 className="header-topic__content">Ronja & Patrik</h2>
-//             </div>
-//           <nav className="header-nav">
-//             <ul className="header-nav__item">
-//               <li
-//                 className={`header-nav__items ${activeIndex === 0 ? 'active' : ''}`}
-//                 onClick={() => handleLinkClick(0)}
-//               >
-//                 <Link to="/" className="header-nav__links">Home</Link>
-//               </li>
-//               <li
-//                 className={`header-nav__items ${activeIndex === 1 ? 'active' : ''}`}
-//                 onClick={() => handleLinkClick(1)}
-//               >
-//                 <Link to="/schedule" className="header-nav__links">Schedule</Link>
-//               </li>
-//               <li
-//                 className={`header-nav__items ${activeIndex === 3 ? 'active' : ''}`}
-//                 onClick={() => handleLinkClick(3)}
-//               >
-//                 <Link to="/wedding-party" className="header-nav__links">Wedding Party</Link>
-//               </li>
-//               <li
-//                 className={`header-nav__items ${activeIndex === 4 ? 'active' : ''}`}
-//                 onClick={() => handleLinkClick(4)}
-//               >
-//                 <Link to="/rsvp" className="header-nav__links">RSVP</Link>
-//               </li>
-//             </ul>
-//           </nav>
-//         </div>
-//       </section>
-//     );
-// }
-
-// export default Header;

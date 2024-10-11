@@ -3,16 +3,29 @@ li{
 }
 
 .header {
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 2rem 0 2rem 0;
+    height: 250px;
+    margin: 2rem 0 5rem 0;
+    opacity: 0;   /* Göm initialt */
+    display: none;   /* Göm initialt */
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+
+    &.visible {
+        opacity: 1;
+        display: block;   /* Visa när den blir synlig */
+    }
 
     &-topic__content {
         font-family: 'BrittanySignature', sans-serif;
-        font-size: 3rem;
+        font-size: 4rem;
         font-weight: lighter;
+        color: #214f1c;
+        margin: 0 0 3rem 0;
+    }
+
+    &-date{
+        font-family: 'Josefin Sans', sans-serif;
+        font-weight: light;
+        font-size: 1rem;
     }
     
     &-inner {
@@ -25,7 +38,7 @@ li{
     &-nav {
         &__item {
             display: flex;
-            gap: 2rem; /* Den vanliga menyn visas som rad på stora skärmar */
+            gap: 4rem; /* Den vanliga menyn visas som rad på stora skärmar */
         }
 
         &__items{
@@ -41,7 +54,7 @@ li{
             display: inline-block;
             font-family: 'Josefin Sans', sans-serif;
             font-size: 24px;
-            color: rgb(97, 119, 112);
+            color: #214f1c;
         }
 
         .header-nav__links::after {
@@ -72,7 +85,8 @@ li{
     /* Hamburgermenyn */
     &-hamburger {
         display: none; /* Dölj hamburgarmenyn på stora skärmar */
-        font-size: 30px;
+        font-size: 40px;
+        color: #214f1c;
         cursor: pointer;
     }
 
@@ -84,7 +98,7 @@ li{
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.95);
+        background-color: #e6dcca;
         justify-content: center;
         align-items: center;
         flex-direction: column;
@@ -106,8 +120,12 @@ li{
 
         a {
             font-size: 30px;
-            color: rgb(97, 119, 112);
+            color: #214f1c;
             text-decoration: none;
+
+            &:hover{
+                color: rgb(97, 119, 112);
+            }
         }
 
         /* X-knappen för att stänga menyn */
@@ -116,29 +134,58 @@ li{
             top: 20px;
             right: 30px;
             font-size: 36px;
-            color: white;
+            color: #214f1c;
             background: none;
             border: none;
             cursor: pointer;
         }
     }
+
+    &-nav__flower{
+        position: absolute;
+        right: -50px;
+        top: 90px;
+
+        &-overlay{
+            opacity: 60%;
+            width: 300px;
+        }
+    }
+}
+
+@media (max-width: 1100px) {
+    .header-nav__item{
+        gap: 2rem;
+    }
 }
 
 /* Media query för hamburgermeny vid mindre skärmar */
 @media (max-width: 801px) {
+
+    .header-wedding{
+        height: 170px;
+        margin-bottom: 3rem;
+    }
+    .header-topic__content{
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
     .header-nav__item {
         display: none; /* Dölj den vanliga menyn på små skärmar */
     }
 
     .header-hamburger {
         display: block; /* Visa hamburgarmenyn på små skärmar */
-        color: rgb(97, 119, 112);
+        color: #214f1c;
     }
 }
 
 /* Media query för större skärmar */
 /* Media query för större skärmar */
 @media (min-width: 800px) {
+
+
     .header-overlay {
         display: none; /* Dölj overlay-menyn på stora skärmar */
     }

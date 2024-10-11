@@ -1,178 +1,235 @@
-.container-inner {
+  /* Grundstil för tidslinjen */
+
+img{
+  overflow: hidden;
+}
+
+.schedule-flower1{
+  position: absolute;
+  right: -52%;
+  width: 600px;
+  opacity: 40%;
+  top: 20%;
+}
+
+.schedule-flower2__container{
+  transform: scaleX(-1);
+}
+
+.schedule-flower2{
+  position: absolute;
+  transform: scaleY(-1);
+  -webkit-transform: scaleY(-1);
+  width: 600px;
+  left: 85%;
+  opacity: 40%;
+}
+
+.timeline-event {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+  
+}
+
+.timeline-event.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.wedding-party-timeline {
+  width: 100%;
+  overflow: hidden;
+}
+
+.wedding-party-timeline__inner{
+  position: relative;
+  max-width: 900px;
+  margin: 0rem auto;
+  padding: 2rem 0;
+}
+  
+  /* Stil för varje händelse */
+  .timeline-event {
+    position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin: 10rem 2rem 0 2rem;
- }
- 
- .schedule {
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: center;
-     color: #111111;
- 
-     &-image {
-         transform: scaleX(-1);
-         position: relative;
- 
-         &__item {
-             transform: scaleY(-1);
-             width: 600px;
-             position: absolute;
-             left: 30rem;
-             top: -30rem;
-         }
-     }
- 
-     &-subheader {
-         display: inherit;
-         flex-direction: inherit;
-         align-items: inherit;
-         justify-content: inherit;
-         text-align: center;
- 
-         &__item {
-             font-family: "Parisienne", cursive;
-             font-size: 2.5rem;
-             margin-bottom: 0;
-         }
- 
-         &__time {
-             font-family: "Josefin Sans", sans-serif;
-             margin-top: 16px;
-             font-size: 2rem;
-         }
-     }
- 
-     &-area {
-         display: inherit;
-         flex-direction: inherit;
-         align-items: inherit;
-         justify-content: inherit;
- 
-         &__adress {
-             font-family: 'Josefin Sans', sans-serif;
-             font-size: 1.5rem;
-             font-weight: 500;
-             margin: 1rem 0 1rem 0;
-         }
- 
-         &__cont {
-             display: flex;
-             align-items: center;
-             justify-content: center;
-             flex-direction: column;
-             flex-wrap: wrap;
-         }
- 
-         &__link {
-             text-align: center;
-             font-family: 'Josefin Sans', sans-serif;
-             text-decoration: underline;
-             color: black;
-             font-size: 1.5rem;
-             font-weight: 600;
-             transition: all 0.2s;
-             margin-bottom: 1.5rem;
-             color: rgb(97, 119, 112);
- 
-             &:hover {
-                 scale: 1.1;
-                 transform: all 0.2s;
-             }
-         }
- 
-         &__paragraph {
-             font-family: "Josefin Sans", sans-serif;
-             font-weight: lighter;
-             text-align: center;
-         }
-     }
- 
-     &-header__item {
-         font-family: 'Josefin Sans', sans-serif;
-         letter-spacing: 2.5px;
-         text-align: center;
-         font-weight: 400;
-         font-size: 3rem;
-     }
- }
+    margin-bottom: 4rem;
+  }
+  
+  .timeline-event.left {
+    justify-content: flex-start;
+    padding-left: 60px; /* Flyttar händelsen till vänster om linjen */
+  }
+  
+  .timeline-event.right {
+    justify-content: flex-end;
+    padding-right: 40px; /* Flyttar händelsen till höger om linjen */
+    text-align: right; /* Texten till höger */
+  }
+  .timeline-event.right-food {
+    justify-content: flex-end;
+    padding-right: 60px; /* Flyttar händelsen till höger om linjen */
+    text-align: right; /* Texten till höger */
+  }
 
+  .timeline-event.left.left-dinner {
+    justify-content: flex-start;
+    padding-left: 125px; /* Flyttar händelsen till vänster om linjen */
+  }
 
- 
- /* Media Queries */
-@media only screen and (max-width: 1450px) {
-     .schedule-image__item {
-         left: 15rem;
-     }
-}
- 
-@media only screen and (max-width: 1367px) {
-     .container-inner {
-         margin: 5rem 2rem 0 2rem;
-     }
- 
-     .schedule-image__item {
-         left: 11rem;
-         top: -20rem;
-     }
-}
-@media only screen and (max-width: 1250px) {
-     .container-inner {
-         margin: 5rem 2rem 0 2rem;
-     }
- 
-     .schedule-image__item {
-         left: 7rem;
-         top: -20rem;
-     }
-}
-@media only screen and (max-width: 1001px) {
- 
-     .schedule-image__item {
-         left: 2rem;
-         top: -20rem;
-     }
-}
-@media only screen and (max-width: 1001px) {
- 
-     .schedule-image__item {
-        width: 450px;
-         left: 8rem;
-         top: -15rem;
-     }
-}
-@media only screen and (max-width: 800px) {
- 
-     .schedule-image__item {
-        width: 450px;
-         left: 4rem;
-         top: -15rem;
-     }
-}
- 
-@media only screen and (max-width: 700px) {
-     .schedule-header__item {
-         font-size: 2rem;
-         text-align: center;
-     }
- 
-     .schedule-image__item {
-        width: 450px;
-         left: -2rem;
-         top: -12rem;
-     }
-}
-@media only screen and (max-width: 500px) {
-     .schedule-header__item {
-         font-size: 2rem;
-         text-align: center;
-     }
- 
-     .schedule-image__item {
-        width: 450px;
-         left: -8rem;
-         top: -10rem;
-     }
-}
+  .timeline-event.right-cake {
+    justify-content: flex-end;
+    padding-right: 140px; /* Flyttar händelsen till höger om linjen */
+    text-align: right; /* Texten till höger */
+  }
+
+  .timeline-event.left.left-dance {
+    justify-content: flex-start;
+    padding-left: 80px; /* Flyttar händelsen till vänster om linjen */
+  }
+
+  .timeline-event.right-kids {
+    justify-content: flex-end;
+    padding-right: 110px; /* Flyttar händelsen till höger om linjen */
+    text-align: right; /* Texten till höger */
+  }
+
+  .timeline-event.left.left-wave {
+    justify-content: flex-start;
+    padding-left: 70px; /* Flyttar händelsen till vänster om linjen */
+  }
+  
+  /* Vertikala streck för varje händelse */
+  .timeline-event::before {
+    content: "";
+    position: absolute;
+    left: 400px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 2px;
+    background-color: #b9a685; /* Färg för strecken */
+  }
+  
+  .timeline-event.right::before {
+    left: auto;
+    right: 400px;
+  }
+  .timeline-event.right-food::before {
+    left: auto;
+    right: 400px;
+  }
+  
+  /* Stil för tiden och händelsedetaljerna */
+  .event-time {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    color: #705d56;
+  }
+  
+  /* Flyttar tiden för högersidan till höger om händelsen */
+  .timeline-event.right .event-time {
+    order: 2; /* Ändrar ordningen för att placera tiden på höger sida */
+    margin-left: 1rem; /* Skapar mellanrum till vänster om tiden */
+    margin-right: 0;  /* Tar bort mellanrum till höger */
+  }
+  
+  .timeline-event.left .event-time {
+    margin-right: 1rem;
+  }
+  
+  .event-details {
+    background-color: #e6dcca;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+  }
+  
+  .event-description {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  /* Stil för ikoner */
+  .event-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+  }
+  
+  .event-icon img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Pseudo-element för vertikal linje */
+  .wedding-party-timeline__inner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background-color: #b9a685;
+    transform: translateX(-50%);
+  }
+  
+  /* Media queries för responsiv design */
+  @media only screen and (max-width: 900px) {
+    
+    .wedding-party-timeline__inner::before{
+      display: none;
+    }
+
+    .schedule-flower1{
+      top: 60px;
+      width: 400px;
+    }
+
+    .schedule-flower2{
+      width: 400px;
+      left: 60%;
+    }
+
+    .timeline-event {
+      align-items: center; /* Centrerar händelserna */
+      margin-bottom: 3rem; /* Justerar avståndet */
+      text-align: center; /* Centrera texten */
+      padding-left: 0; /* Återställ padding */
+      padding-right: 0; /* Återställ padding */
+    }
+  
+    .timeline-event.right,
+    .timeline-event.right-food,
+    .timeline-event.right-cake,
+    .timeline-event.right-kids {
+      justify-content: center; /* Centrera högerhändelser */
+      padding-left: 0; /* Återställ padding */
+    }
+
+    .timeline-event.right-kids{
+      padding-right: 110px;
+    }
+  
+    .timeline-event.left,
+    .timeline-event.left.left-dinner,
+    .timeline-event.left.left-dance,
+    .timeline-event.left.left-wave {
+      justify-content: center; /* Centrera vänsterhändelser */
+      padding-right: 0; /* Återställ padding */
+    }
+
+    .wedding-party-timeline__inner{
+      margin: 0;
+      padding: 0;
+    }
+  
+    .timeline-event::before {
+      display: none;
+    }
+  }
