@@ -36,7 +36,7 @@
 
 .hero {
     width: 100vw;
-    height: 80vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,8 +62,8 @@
             position: relative;
 
             &__image-container {
-                width: 98vw;
                 height: 100%;
+                display: flex;
                 position: absolute; /* Bilden ligger bakom texten */
                 z-index: 1; /* Lägre z-index än texten */
             }
@@ -75,10 +75,11 @@
                 transform: translate(-50%, -50%); /* För att säkerställa att texten är centrerad */
                 color: #fff;
                 font-family: 'BrittanySignature', sans-serif;
-                font-size: 6rem;
+                font-size: 5rem;
                 max-width: 90vw;
                 width: 100%;
                 text-align: center;
+                padding-right: 6rem;
                 opacity: 1;
                 z-index: 10; /* Se till att texten visas över bilden */
                 transition: opacity 1s ease-out, transform 1s ease-out;
@@ -147,8 +148,8 @@
 
     &-randp {
         object-fit: cover;
-        width: 100%;
-        height: 90vh;
+        width: 90vw;
+        height: 180vh;
         border-radius: 20px;
     }
 
@@ -307,6 +308,7 @@
 @media only screen and (max-width: 867px) {
     .hero--first .hero-inner__topic{
         font-size: 4rem;
+        padding-right: 1rem;
     }
 }
 
@@ -315,7 +317,7 @@
     .hero-randp {
         position: relative;
         object-fit: cover;
-        object-position: 21% 0%;
+        object-position: 35% 0%;
         height: 90vh;
     }
 
@@ -328,7 +330,8 @@
     }
 
     .hero-inner__topic {
-        font-size: 2.5rem !important;
+        font-size: 2rem !important;
+        margin-top: 5rem;
     }
 
     .hero-inner__topic-ronja,

@@ -36,37 +36,37 @@ function Bridalparty() {
             <section className="bridalparty">
                 <div className="bridalparty-inner" ref={bridalpartyRef}>
                     <div className="bridalparty-inner__member">
-                        <img src={`${import.meta.env.BASE_URL}images/IMG_3977.jpeg`} alt="alma" loading="lazy" className="bridalparty-inner__member-img"></img>
+                        <img src={`${import.meta.env.BASE_URL}images/Elma.JPG`} alt="Alma" loading="lazy" className="bridalparty-inner__member-img"></img>
                         <div className="bridalparty-inner__member-info">
                             <h2>Alma</h2>
-                            <p>Role: Maid of honor</p>
+                            <p>Role: Bridesmade</p>
                             <p><a href="mailto:wallman92@gmail.com">Contact</a></p>
                         </div>
                     </div>
 
                     <div className="bridalparty-inner__member">
-                        <img src={`${import.meta.env.BASE_URL}images/IMG_3978.jpeg`} alt="ella" loading="lazy" className="bridalparty-inner__member-img"></img>
+                        <img src={`${import.meta.env.BASE_URL}images/Ella.JPG`} alt="Ella" loading="lazy" className="bridalparty-inner__member-img"></img>
                         <div className="bridalparty-inner__member-info">
                             <h2>Ella</h2>
-                            <p>Role: Best Something</p>
+                            <p>Role: Bridesmade</p>
                             <p><a href="mailto:wallman92@gmail.com">Contact</a></p>
                         </div>
                     </div>
 
                     <div className="bridalparty-inner__member">
-                        <img src={`${import.meta.env.BASE_URL}images/IMG_3978.jpeg`} alt="jakob" loading="lazy" className="bridalparty-inner__member-img"></img>
+                        <img src={`${import.meta.env.BASE_URL}images/Jakob.JPG`} alt="jakob" loading="lazy" className="bridalparty-inner__member-img"></img>
                         <div className="bridalparty-inner__member-info">
                             <h2>Jakob</h2>
-                            <p>Role: Best Man</p>
+                            <p>Role: Groomsmen</p>
                             <p><a href="mailto:wallman92@gmail.com">Contact</a></p>
                         </div>
                     </div>
 
                     <div className="bridalparty-inner__member">
-                        <img src={`${import.meta.env.BASE_URL}images/IMG_3978.jpeg`} alt="lukas" loading="lazy" className="bridalparty-inner__member-img"></img>
+                        <img src={`${import.meta.env.BASE_URL}images/Lukas.JPG`} alt="lukas" loading="lazy" className="bridalparty-inner__member-img"></img>
                         <div className="bridalparty-inner__member-info">
                             <h2>Lukas</h2>
-                            <p>Role: Best Something</p>
+                            <p>Role: Groomsmen</p>
                             <p><a href="mailto:wallman92@gmail.com">Contact</a></p>
                         </div>
                     </div>

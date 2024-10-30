@@ -16,7 +16,7 @@
         overflow: hidden;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        gap: 4rem;
+        gap: 2rem;
         opacity: 0;
         // transform: all;
         transition: opacity 1s ease-out, transform 1s ease-out;
@@ -172,5 +172,10 @@
     .accordion-inner{
         display: block;
     }
+  }
+
+  a{
+    margin-top: 1rem;
+    display: inline-block;
   }
   

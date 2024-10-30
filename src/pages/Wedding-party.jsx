@@ -11,15 +11,26 @@ function Schedule() {
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(false);
-
+    const [loadedImages, setLoadedImages] = useState([]); // Hanterar förladdade bilder
     const containerRef = useRef(null);
 
-    // Förladda bilder
+    // Förladda bilder med löften (Promise)
     useEffect(() => {
-        images.forEach((src) => {
-            const img = new Image();
-            img.src = src;
-        });
+        const loadImages = async () => {
+            const promises = images.map(src => {
+                return new Promise((resolve, reject) => {
+                    const img = new Image();
+                    img.src = src;
+                    img.onload = () => resolve(img.src);
+                    img.onerror = reject;
+                });
+            });
+
+            const loaded = await Promise.all(promises);
+            setLoadedImages(loaded); // Sparar laddade bilder
+        };
+
+        loadImages();
     }, [images]);
 
     // Bildbyte och övergångseffekt
@@ -27,13 +38,13 @@ function Schedule() {
         const interval = setInterval(() => {
             setIsTransitioning(true);
             setTimeout(() => {
-                setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+                setCurrentImageIndex((prevIndex) => (prevIndex + 1) % loadedImages.length);
                 setIsTransitioning(false);
-            }, 500); // Övergångstid matchar CSS
+            }, 400); // Övergångstid matchar CSS
         }, 5000); // Bildbyte var 5:e sekund
 
         return () => clearInterval(interval);
-    }, [images.length]);
+    }, [loadedImages.length]);
 
     // Observer för mjuk inladdningseffekt
     useEffect(() => {
@@ -47,7 +58,7 @@ function Schedule() {
                 });
             },
             {
-                threshold: 0.1, // 10% av elementet måste vara synligt
+                threshold: 0.3, // 30% av elementet måste vara synligt
             }
         );
 
@@ -69,11 +80,13 @@ function Schedule() {
 
                     {/* Bildspel */}
                     <div className="slideshow">
-                        <img
-                            className={`slideshow__image ${isTransitioning ? 'fade-outt' : 'fade-inn'}`}
-                            src={images[currentImageIndex]}
-                            alt="Slideshow"
-                        />
+                        {loadedImages.length > 0 && (
+                            <img
+                                className={`slideshow__image ${isTransitioning ? 'fade-outt' : 'fade-inn'}`}
+                                src={loadedImages[currentImageIndex]}
+                                alt="Slideshow"
+                            />
+                        )}
                         <h2 className="image-copyright">Copyright Lillegård</h2>
                     </div>
 
@@ -99,111 +112,3 @@ function Schedule() {
 }
 
 export default Schedule;
-
-
-
-
-
-// import React from "react";
-// import './Wedding.scss'
-
-// function Wedding() {
-//   return (
-//     <>
-//       <section className="wedding-party-timeline">
-//         <div className="timeline-event left">
-//           <p className="event-time">13:30</p>
-//           <div className="event-details">
-//             <div className="event-icon">
-//               <img src="./images/guests.png" alt="Guests Arrival" />
-//             </div>
-//             <p className="event-description">Guests Arrival</p>
-//           </div>
-//         </div>
-
-//         <div className="timeline-event right">
-//           <p className="event-time">14:00</p>
-//           <div className="event-details">
-//             <div className="event-icon">
-//               <img src="./images/arch.png" alt="Groom Arrival" />
-//             </div>
-//             <p className="event-description">Ceremony starts</p>
-//           </div>
-//         </div>
-
-//         <div className="timeline-event left">
-//           <p className="event-time">14:30</p>
-//           <div className="event-details">
-//             <div className="event-icon">
-//               <img src="./images/dice.png" alt="Bride Arrival" />
-//             </div>
-//             <p className="event-description">Garden games</p>
-//           </div>
-//         </div>
-
-//         <div className="timeline-event right right-food">
-//           <p className="event-time">16:30</p>
-//           <div className="event-details">
-//             <div className="event-icon">
-//               <img src="./images/table.png" alt="Bride Arrival" />
-//             </div>
-//             <p className="event-description">Find your seat</p>
-//           </div>
-//         </div>
-
-//         <div className="timeline-event left left-dinner">
-//           <p className="event-time">17:00</p>
-//           <div className="event-details">
-//             <div className="event-icon">
-//               <img src="./images/serving-dish.png" alt="Bride Arrival" />
-//             </div>
-//             <p className="event-description">Dinner</p>
-//           </div>
-//         </div>
-
-//         <div className="timeline-event right right-cake">
-//           <p className="event-time">19:30</p>
-//           <div className="event-details">
-//             <div className="event-icon">
-//               <img src="./images/wedding-cake.png" alt="Bride Arrival" />
-//             </div>
-//             <p className="event-description">Cake</p>
-//           </div>
-//         </div>
-
-//         <div className="timeline-event left left-dance">
-//           <p className="event-time">20:00</p>
-//           <div className="event-details">
-//             <div className="event-icon">
-//               <img src="./images/dance.png" alt="Bride Arrival" />
-//             </div>
-//             <p className="event-description">First dance</p>
-//           </div>
-//         </div>
-
-//         <div className="timeline-event right right-kids">
-//           <p className="event-time">21:00</p>
-//           <div className="event-details">
-//             <div className="event-icon">
-//               <img src="./images/children.png" alt="Bride Arrival" />
-//             </div>
-//             <p className="event-description">Kids free</p>
-//           </div>
-//         </div>
-
-//         <div className="timeline-event left left-wave">
-//           <p className="event-time">00:00</p>
-//           <div className="event-details">
-//             <div className="event-icon">
-//               <img src="./images/just-married.png" alt="Bride Arrival" />
-//             </div>
-//             <p className="event-description">Wave us off</p>
-//           </div>
-//         </div>
-
-//       </section>
-//     </>
-//   );
-// }
-
-// export default Wedding;

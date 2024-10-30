@@ -40,19 +40,19 @@ function Header({ headerVisible }) {
                         <li className={`header-nav__items ${activeIndex === 0 ? 'active' : ''}`} onClick={() => handleLinkClick(0)}>
                             <Link to="/" className="header-nav__links">Home</Link>
                         </li>
-                        <li className={`header-nav__items ${activeIndex === 5 ? 'active' : ''}`} onClick={() => handleLinkClick(5)}>
+                        <li className={`header-nav__items ${activeIndex === 1 ? 'active' : ''}`} onClick={() => handleLinkClick(1)}>
                             <Link to="/qanda" className="header-nav__links">Q&A</Link>
                         </li>
-                        <li className={`header-nav__items ${activeIndex === 1 ? 'active' : ''}`} onClick={() => handleLinkClick(1)}>
+                        <li className={`header-nav__items ${activeIndex === 2 ? 'active' : ''}`} onClick={() => handleLinkClick(2)}>
                             <Link to="/schedule" className="header-nav__links">Schedule</Link>
                         </li>
-                        <li className={`header-nav__items ${activeIndex === 2 ? 'active' : ''}`} onClick={() => handleLinkClick(2)}>
+                        <li className={`header-nav__items ${activeIndex === 3 ? 'active' : ''}`} onClick={() => handleLinkClick(3)}>
                             <Link to="/wedding-party" className="header-nav__links">Venue</Link>
                         </li>
-                        <li className={`header-nav__items ${activeIndex === 3 ? 'active' : ''}`} onClick={() => handleLinkClick(3)}>
+                        <li className={`header-nav__items ${activeIndex === 4 ? 'active' : ''}`} onClick={() => handleLinkClick(4)}>
                             <Link to="/bridal-party" className="header-nav__links">Bridal Party</Link>
                         </li>
-                        <li className={`header-nav__items ${activeIndex === 4 ? 'active' : ''}`} onClick={() => handleLinkClick(4)}>
+                        <li className={`header-nav__items ${activeIndex === 6 ? 'active' : ''}`} onClick={() => handleLinkClick(6)}>
                             <Link to="/rsvp" className="header-nav__links">RSVP</Link>
                         </li>
                     </ul>
