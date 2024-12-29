@@ -79,8 +79,3 @@ function Header({ headerVisible }) {
 }
 
 export default Header;
-
-
-
-
-

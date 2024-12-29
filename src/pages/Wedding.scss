@@ -39,7 +39,7 @@
     width: 98vw;
     height: 500px; /* Justera höjden efter behov */
     overflow: hidden;
-    border-radius: 20px;
+    border-radius: 10px;
   }
   
   .slideshow__image {
@@ -110,6 +110,7 @@
        align-items: inherit;
        justify-content: inherit;
        text-align: center;
+       margin-top: 4rem;
 
        &__item {
             font-family: 'BrittanySignature';
@@ -129,6 +130,9 @@
        flex-direction: inherit;
        align-items: inherit;
        justify-content: inherit;
+       max-width: 55rem;
+       text-align: center;
+       margin: 0 2rem 0 2rem;
 
        &__adress {
            font-family: 'Josefin Sans', sans-serif;
@@ -157,7 +161,7 @@
            color: rgb(97, 119, 112);
 
            &:hover {
-               scale: 1.1;
+               scale: 1.02;
                transform: all 0.2s;
            }
        }
@@ -185,6 +189,7 @@
 @media only screen and (max-width: 1450px) {
    .schedule-image__item {
        left: 15rem;
+       top: -25rem;
    }
 }
 

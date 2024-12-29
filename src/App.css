@@ -2,6 +2,43 @@
   margin: 0 auto;
 }
 
+.password-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.password-protect{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
+}
+
+.password-protect__header{
+    font-family: 'Josefin Sans', sans-serif;
+    color: #111;
+    font-size: 3rem;
+    margin-bottom: 0;
+}
+
+
+  .password-protect__subheader{
+    font-size: 1.5rem;
+    font-family: 'Josefin Sans', cursive;
+  }
+
+  .password-protect__input{
+    width: 10rem;
+    text-align: center;
+    padding: 12px;
+  }
+
+  .password-protect__button{
+    margin: 0;
+  }
 
 body{
   padding: 0;
