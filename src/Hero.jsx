@@ -88,7 +88,7 @@ function Hero() {
             <section className={`hero hero--first ${isScrolled || hasVisited ? 'visible' : ''}`}>
                 <div className="hero-inner">
                     <div className="hero-inner__image-container">
-                        <img className="hero-randp" rel="preload" src="public/images/PatrikAndRonjaHigh.jpg" as="image" />
+                        <img className="hero-randp" rel="preload" src="./images/PatrikAndRonjaHigh.jpg" as="image" />
                     </div>
                     <h1 className={`hero-inner__topic ${isScrolled || hasVisited ? 'fade-in' : ''}`}>We are getting married</h1>
                 </div>
