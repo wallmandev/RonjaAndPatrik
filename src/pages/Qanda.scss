@@ -1,181 +1,389 @@
 @font-face {
-    font-family: 'BrittanySignature';
-    src: url('/RonjaAndPatrik/fonts/BrittanySignature.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'BrittanySignature';
+  src: url('/RonjaAndPatrik/fonts/BrittanySignature.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.qanda-container {
+opacity: 1;
+transform: translateY(20px);
+transition: opacity 1s ease-out, transform 1s ease-out;
+margin: 0 auto;
+border-radius: 8px;
+overflow: hidden;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+gap: 2rem;
+
+&.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
 }
 
 .accordion {
-    width: 100%;
-    padding-bottom: 5rem;
+  width: 100%;
+  padding-bottom: 5rem;
 
-    &-inner{
-        max-width: 80%;
-        margin: 0 auto;
-        border-radius: 8px;
-        overflow: hidden;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        gap: 2rem;
-        opacity: 0;
-        // transform: all;
-        transition: opacity 1s ease-out, transform 1s ease-out;
-      }
-      
-      .accordion-inner.visible{
-        opacity: 1 !important;
-        transform: translateY(0);
-      }
-      
-
-    &-dateandtime,
-    &-placeandtravel,
-    &-dresscode,
-    &-foodanddrink,
-    &-guestinfo,
-    &-gifts,
-    &-request,
-    &-photography{
-        display: flex;
-        align-items: center;
-        flex-direction: column;
+  &-inner{
+      max-width: 80%;
+      margin: 0 auto;
+      border-radius: 8px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 2rem;
+      opacity: 0;
+      transition: opacity 1s ease-out, transform 1s ease-out;
     }
-
-    &-dateandtime__header,
-    &-placeandtravel__header,
-    &-dresscode__header,
-    &-foodanddrink__header,
-    &-guestinfo__header,
-    &-gifts__header,
-    &-request__header,
-    &-photography__header{
-        text-align: center;
-        max-width: 650px;
-        margin-bottom: 2rem;
-        font-family: 'BrittanySignature';
-        font-size: 2.5rem;
-        margin-top: 1rem;
-
+    
+    .accordion-inner.visible{
+      opacity: 1 !important;
+      transform: translateY(0);
     }
+    
+
+  &-dateandtime,
+  &-placeandtravel,
+  &-dresscode,
+  &-foodanddrink,
+  &-guestinfo,
+  &-gifts,
+  &-request,
+  &-photography{
+      display: flex;
+      align-items: center;
+      flex-direction: column;
   }
-  
-  .accordion-item {
-    border-bottom: 1px solid #ddd;
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
 
-    button{
-      background-color: none;
-    }
-
-    &__adress{
-        font-weight: bold;
-    }
-  }
-  
-  .accordion-header {
-    width: 100%;
-    background-color: #e6dcca;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-    color: #214f1c;
-    padding: 1rem;
-    font-size: 1.5rem;
-    font-family: 'Josefin Sans', sans-serif;
-    text-align: center;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    transition: all 0.3s ease;
-  }
-  
-  .accordion-header:hover {
-    transform: all 0.3s ease;
-    transform: scale(1.01);
-    background-color: #e6dcca;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.6);
+  &-dateandtime__header,
+  &-placeandtravel__header,
+  &-dresscode__header,
+  &-foodanddrink__header,
+  &-guestinfo__header,
+  &-gifts__header,
+  &-request__header,
+  &-photography__header{
+      text-align: center;
+      max-width: 650px;
+      margin-bottom: 2rem;
+      font-family: 'BrittanySignature';
+      font-size: 2.5rem;
+      margin-top: 1rem;
 
   }
-  
-  .accordion-content {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    padding: 0 1rem;
-    margin-bottom: 2rem;
-    font-size: 1rem;
-    font-family: 'Josefin Sans', sans-serif;
-    background-color: #c5bcad;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-    transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
-    text-align: center;
-  
-  
-    &.active {
-      max-height: 1000px; // Öka denna om du har mer innehåll
-      opacity: 1; // Animerar in synligheten
-      padding-top: 1rem; // Lägg till padding för att förbättra utseendet när det expanderar
-    }
+}
+
+.accordion-item {
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+
+  button{
+    background-color: none;
+  }
+
+  &__adress{
+      font-weight: bold;
+  }
+}
+
+.accordion-header {
+  width: 100%;
+  background-color: #e6dcca;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  color: #214f1c;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-family: 'Josefin Sans', sans-serif;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.accordion-header:hover {
+  transform: all 0.3s ease;
+  transform: scale(1.01);
+  background-color: #e6dcca;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.6);
+
+}
+
+.accordion-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0 1rem;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: #c5bcad;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
+  text-align: center;
+
+
+  &.active {
+    max-height: 1000px; // Öka denna om du har mer innehåll
+    opacity: 1; // Animerar in synligheten
+    padding-top: 1rem; // Lägg till padding för att förbättra utseendet när det expanderar
+  }
+
+  p{
+      font-size: 1.2rem;
+  }
+}
+
+.accordion-content p {
+  margin: 0;
+  padding: 1rem 0;
+}
+
+.accordion-content.active {
+  max-height: 500px;
+}
+
+@media (max-width: 700px){
+
+  .accordion-dateandtime__header,
+  .accordion-placeandtravel__header,
+  .accordion-dresscode__header,
+  .accordion-foodanddrink__header,
+  .accordion-guestinfo__header,
+  .accordion-gifts__header,
+  .accordion-request__header,
+  .accordion-photography__header{
+      font-size: 2rem;
+  }
+
+  .accordion-header{
+      font-size: 1.2rem;
+  }
+
+  .accordion-content{
 
     p{
-        font-size: 1.2rem;
+      font-size: 1rem;
     }
   }
+
+  .accordion-inner,
+  .accordion-item{
+      max-width: 100%;
+      margin: 0 1rem;
+  }
+
+  .accordion-inner{
+      gap: 2rem;
+  }
+}
+
+
+
+@media (max-width: 430px){
+  .accordion-inner{
+      display: block;
+  }
+}
+
+a{
+  margin-top: 1rem;
+  display: inline-block;
+}
+
+// @font-face {
+//     font-family: 'BrittanySignature';
+//     src: url('/RonjaAndPatrik/fonts/BrittanySignature.ttf') format('truetype');
+//     font-weight: normal;
+//     font-style: normal;
+// }
+
+// .qanda-container {
+//   opacity: 0;
+//   transform: translateY(20px);
+//   transition: opacity 1s ease-out, transform 1s ease-out;
+
+//   &.visible {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }
+
+// .accordion {
+//     width: 100%;
+//     padding-bottom: 5rem;
+
+//     &-inner{
+//         max-width: 80%;
+//         margin: 0 auto;
+//         border-radius: 8px;
+//         overflow: hidden;
+//         display: grid;
+//         grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+//         gap: 2rem;
+//         opacity: 0;
+//         // transform: all;
+//         transition: opacity 1s ease-out, transform 1s ease-out;
+//       }
+      
+//       .accordion-inner.visible{
+//         opacity: 1 !important;
+//         transform: translateY(0);
+//       }
+      
+
+//     &-dateandtime,
+//     &-placeandtravel,
+//     &-dresscode,
+//     &-foodanddrink,
+//     &-guestinfo,
+//     &-gifts,
+//     &-request,
+//     &-photography{
+//         display: flex;
+//         align-items: center;
+//         flex-direction: column;
+//     }
+
+//     &-dateandtime__header,
+//     &-placeandtravel__header,
+//     &-dresscode__header,
+//     &-foodanddrink__header,
+//     &-guestinfo__header,
+//     &-gifts__header,
+//     &-request__header,
+//     &-photography__header{
+//         text-align: center;
+//         max-width: 650px;
+//         margin-bottom: 2rem;
+//         font-family: 'BrittanySignature';
+//         font-size: 2.5rem;
+//         margin-top: 1rem;
+
+//     }
+//   }
   
-  .accordion-content p {
-    margin: 0;
-    padding: 1rem 0;
-  }
+//   .accordion-item {
+//     border-bottom: 1px solid #ddd;
+//     display: flex;
+//     flex-direction: column;
+//     max-width: 400px;
+
+//     button{
+//       background-color: none;
+//     }
+
+//     &__adress{
+//         font-weight: bold;
+//     }
+//   }
   
-  .accordion-content.active {
-    max-height: 500px;
-  }
+//   .accordion-header {
+//     width: 100%;
+//     background-color: #e6dcca;
+//     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+//     color: #214f1c;
+//     padding: 1rem;
+//     font-size: 1.5rem;
+//     font-family: 'Josefin Sans', sans-serif;
+//     text-align: center;
+//     cursor: pointer;
+//     border: none;
+//     outline: none;
+//     transition: all 0.3s ease;
+//   }
+  
+//   .accordion-header:hover {
+//     transform: all 0.3s ease;
+//     transform: scale(1.01);
+//     background-color: #e6dcca;
+//     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.6);
 
-  @media (max-width: 700px){
+//   }
+  
+//   .accordion-content {
+//     max-height: 0;
+//     opacity: 0;
+//     overflow: hidden;
+//     padding: 0 1rem;
+//     margin-bottom: 2rem;
+//     font-size: 1rem;
+//     font-family: 'Josefin Sans', sans-serif;
+//     background-color: #c5bcad;
+//     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+//     transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
+//     text-align: center;
+  
+  
+//     &.active {
+//       max-height: 1000px; // Öka denna om du har mer innehåll
+//       opacity: 1; // Animerar in synligheten
+//       padding-top: 1rem; // Lägg till padding för att förbättra utseendet när det expanderar
+//     }
 
-    .accordion-dateandtime__header,
-    .accordion-placeandtravel__header,
-    .accordion-dresscode__header,
-    .accordion-foodanddrink__header,
-    .accordion-guestinfo__header,
-    .accordion-gifts__header,
-    .accordion-request__header,
-    .accordion-photography__header{
-        font-size: 2rem;
-    }
+//     p{
+//         font-size: 1.2rem;
+//     }
+//   }
+  
+//   .accordion-content p {
+//     margin: 0;
+//     padding: 1rem 0;
+//   }
+  
+//   .accordion-content.active {
+//     max-height: 500px;
+//   }
 
-    .accordion-header{
-        font-size: 1.2rem;
-    }
+//   @media (max-width: 700px){
 
-    .accordion-content{
+//     .accordion-dateandtime__header,
+//     .accordion-placeandtravel__header,
+//     .accordion-dresscode__header,
+//     .accordion-foodanddrink__header,
+//     .accordion-guestinfo__header,
+//     .accordion-gifts__header,
+//     .accordion-request__header,
+//     .accordion-photography__header{
+//         font-size: 2rem;
+//     }
 
-      p{
-        font-size: 1rem;
-      }
-    }
+//     .accordion-header{
+//         font-size: 1.2rem;
+//     }
 
-    .accordion-inner,
-    .accordion-item{
-        max-width: 100%;
-        margin: 0 1rem;
-    }
+//     .accordion-content{
 
-    .accordion-inner{
-        gap: 2rem;
-    }
-  }
+//       p{
+//         font-size: 1rem;
+//       }
+//     }
+
+//     .accordion-inner,
+//     .accordion-item{
+//         max-width: 100%;
+//         margin: 0 1rem;
+//     }
+
+//     .accordion-inner{
+//         gap: 2rem;
+//     }
+//   }
 
 
 
-  @media (max-width: 430px){
-    .accordion-inner{
-        display: block;
-    }
-  }
+//   @media (max-width: 430px){
+//     .accordion-inner{
+//         display: block;
+//     }
+//   }
 
-  a{
-    margin-top: 1rem;
-    display: inline-block;
-  }
+//   a{
+//     margin-top: 1rem;
+//     display: inline-block;
+//   }
   

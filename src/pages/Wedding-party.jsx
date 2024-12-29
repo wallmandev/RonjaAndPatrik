@@ -3,10 +3,10 @@ import './Schedule.scss';
 
 function Schedule() {
     const images = [
-        `${import.meta.env.BASE_URL}images/IMG_1359.jpeg`,
-        `${import.meta.env.BASE_URL}images/IMG_3977.jpeg`,
-        `${import.meta.env.BASE_URL}images/IMG_3978.jpeg`,
-        `${import.meta.env.BASE_URL}images/IMG_3982.jpeg`
+        `${import.meta.env.BASE_URL}images/IMG_1359-min.jpeg`,
+        `${import.meta.env.BASE_URL}images/IMG_3977-min.jpeg`,
+        `${import.meta.env.BASE_URL}images/IMG_3978-min.jpeg`,
+        `${import.meta.env.BASE_URL}images/IMG_3982-min.jpeg`
     ];
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -91,15 +91,13 @@ function Schedule() {
                     </div>
 
                     <div className="schedule-subheader">
-                        <h2 className="schedule-subheader__item">We are getting married!</h2>
-                        <h4 className="schedule-subheader__time">2:00 PM</h4>
+                        <h4 className="schedule-subheader__time">14:00</h4>
                     </div>
 
                     <div className="schedule-area">
-                        <h4 className="schedule-area__adress">Lillegård</h4>
-                        <a className="schedule-area__link" href="https://www.google.com/maps/place/Sk%C3%A5ne+l%C3%A4n,+Fredriksrov%C3%A4gen+85,+244+91+K%C3%A4vlinge/@55.8029807,13.2059811,17z/data=!3m1!4b1!4m6!3m5!1s0x4653be3268980521:0xac1f0ba950cb10bc!8m2!3d55.8029807!4d13.2059811!16s%2Fg%2F11c134mm8y?entry=ttu&g_ep=EgoyMDI0MDkwNC4wIKXMDSoASAFQAw%3D%3D"
+                        <h4 className="schedule-area__adress">Our lovely venue is called Lillegård <br></br>and is located at <a className="schedule-area__link" href="https://www.google.com/maps/place/Sk%C3%A5ne+l%C3%A4n,+Fredriksrov%C3%A4gen+85,+244+91+K%C3%A4vlinge/@55.8029807,13.2059811,17z/data=!3m1!4b1!4m6!3m5!1s0x4653be3268980521:0xac1f0ba950cb10bc!8m2!3d55.8029807!4d13.2059811!16s%2Fg%2F11c134mm8y?entry=ttu&g_ep=EgoyMDI0MDkwNC4wIKXMDSoASAFQAw%3D%3D"
                         target="_blank"
-                        rel="noopener noreferrer">85 Fredriksrovägen, Skåne län 244 91, Sweden</a>
+                        rel="noopener noreferrer">85 Fredriksrovägen, Skåne län 244 91, Sweden</a> It’s a cute little farm outside Kävlinge. The closest larger towns are Kävlinge and Eslöv. It is located about 20 minutes from Lund and about 30 minutes from Malmö by car. We recommend that you either drive out or take a train to Elsöv where you can either take a taxi to the venue or coordinate with other guests to rideshare.</h4>
                     </div>
 
                     <div className="schedule-image">
