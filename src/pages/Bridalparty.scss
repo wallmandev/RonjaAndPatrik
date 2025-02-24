@@ -1,11 +1,44 @@
 .bridalparty {
+  margin: 0 1rem;
+
+  &__copyright{
+    position: absolute;
+    width: 100%;
+  }
+
+
+  &__photoDenise,
+  &__photoDeniseInsta{
+    position: absolute;
+    font-size: 10px;
+  }
+
+  &-info{
+    text-align: center;
+    margin-top: 6rem;
+    font-size: 1.5rem;
+    font-family: 'Josefin Sans', sans-serif;
+    &-header{
+      font-weight: 500;
+    }
+  }
+
+  &-role{
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    &__contact{
+      margin-bottom: 1rem;
+      margin-top: 0;
+    }
+  }
     &-inner {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(470px, 1fr));
       gap: 1.5rem;
       align-items: center;
+      margin-top: 4rem;
       justify-content: center;
-      margin: 0 8rem;
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 1s ease-out, transform 1s ease-out;
@@ -19,6 +52,10 @@
         h2 {
           font-family: 'BrittanySignature', sans-serif;
           font-size: 2.5rem;
+        }
+
+        p{
+          margin-bottom: 0;
         }
         display: flex;
         align-items: center;
@@ -68,7 +105,22 @@
           height: 250px;
           border-radius: 100%;
           object-fit: cover;
+          position: relative;
+
+          &__ronja{
+
+            img{
+            scale: 1.2;
+            }
+          }
         }
+      }
+    }
+
+    @media only screen and (max-width: 996px) {
+
+      .bridalparty-inner {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       }
     }
   }

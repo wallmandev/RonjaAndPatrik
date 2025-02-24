@@ -15,6 +15,8 @@
   align-items: center;
   justify-content: center;
   max-width: 500px;
+  margin: 0 0.5rem 0 0.5rem;
+  text-align: center;
 }
 
 .password-protect__header{
@@ -45,4 +47,10 @@ body{
   margin: 0;
   box-sizing: border-box;
   background-color: #e6dcca;
+  overflow-x: hidden;
+}
+
+img {
+  pointer-events: none; /* Inaktiverar interaktion med bilder */
+  -webkit-user-drag: none; /* Förhindrar dra-och-släpp i WebKit-baserade webbläsare */
 }

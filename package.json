@@ -1,7 +1,7 @@
 {
   "name": "ronjaandpatrik",
   "private": true,
-  "homepage": "https://wallmandev.github.io/RonjaAndPatrik/",
+  "homepage": "/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -15,6 +15,7 @@
   "dependencies": {
     "fireworks-js": "^2.10.8",
     "framer-motion": "^11.11.10",
+    "js-confetti": "^0.12.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.1",

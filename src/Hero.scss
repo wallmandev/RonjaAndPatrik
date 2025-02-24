@@ -3,13 +3,13 @@
     flex-direction: column;
     align-items: center;
     position: absolute;
-    bottom: 80px; /* Placera längst ner på sidan */
+    bottom: 25rem; /* Placera längst ner på sidan */
     left: 50%;
     transform: translateX(-50%);
     cursor: pointer;
   }
-  
-  .arrow {
+
+.arrow {
     display: inline-block;
     width: 30px;
     height: 30px;
@@ -17,22 +17,20 @@
     border-right: 2px solid #111;
     transform: rotate(45deg); /* Gör det till en pil */
     animation: moveArrow 1.5s infinite;
-  }
-  
-  /* Separera translation från rotationen */
-  @keyframes moveArrow {
+}
+
+/* Separera translation från rotationen */
+@keyframes moveArrow {
     0% {
-      transform: translateY(0) rotate(45deg); /* Börja på ursprunglig plats */
+        transform: translateY(0) rotate(45deg); /* Börja på ursprunglig plats */
     }
     50% {
-      transform: translateY(10px) rotate(45deg); /* Flytta pilen nedåt */
+        transform: translateY(10px) rotate(45deg); /* Flytta pilen nedåt */
     }
     100% {
-      transform: translateY(0) rotate(45deg); /* Tillbaka till ursprunglig plats */
+        transform: translateY(0) rotate(45deg); /* Tillbaka till ursprunglig plats */
     }
-  }
-  
-  
+}
 
 .hero {
     width: 100vw;
@@ -42,91 +40,88 @@
     align-items: center;
     position: relative;
     overflow: hidden;
-    transform: translateY(20px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
 
-    &.visible {
+    &--second {
+        display: block;
         opacity: 1;
-        transform: translateY(0);
+        transition: opacity 0.5s ease;
+        height: 100vh;
+        padding-bottom: 20rem;
+        overflow: hidden;
+
+        &.hidden {
+            display: none;
+            opacity: 0;
+        }
     }
 
     &--first {
+        display: none;
         opacity: 0;
-        transform: translateY(100px); /* Skjuter ner den första sektionen lite */
-        transition: opacity 0.5s ease, transform 0.5s ease;
 
         &.visible {
+            display: block;
             opacity: 1;
-            transform: translateY(0);
+            transition: opacity 0.5s ease;
         }
+    }
 
-        .hero-inner {
-            width: 100%;
+    .hero-inner {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        &__image-container {
             height: 100%;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
+            position: absolute; /* Bilden ligger bakom texten */
+            z-index: 1; /* Lägre z-index än texten */
 
-            &__image-container {
-                height: 100%;
-                display: flex;
-                position: absolute; /* Bilden ligger bakom texten */
-                z-index: 1; /* Lägre z-index än texten */
+            &-denise{
+                z-index: 100;
+                height: auto;
             }
+        }
 
-            &__topic {
-                position: absolute;
-                top: 1%;
-                left: 50%; /* Centrera horisontellt */
-                transform: translate(-50%, -50%); /* För att säkerställa att texten är centrerad */
-                color: #fff;
-                font-family: 'BrittanySignature', sans-serif;
-                font-size: 5rem;
-                max-width: 90vw;
-                width: 100%;
-                text-align: center;
-                padding-right: 6rem;
-                opacity: 1;
-                z-index: 10; /* Se till att texten visas över bilden */
-                transition: opacity 1s ease-out, transform 1s ease-out;
-            }
+        &__topic {
+            position: absolute;
+            top: 1%;
+            left: 54%; /* Centrera horisontellt */
+            transform: translate(-50%, -50%); /* För att säkerställa att texten är centrerad */
+            color: #fff;
+            font-family: 'BrittanySignature', sans-serif;
+            font-size: 5rem;
+            max-width: 90vw;
+            width: 100%;
+            text-align: center;
+            padding-right: 6rem;
+            opacity: 1;
+            z-index: 10; /* Se till att texten visas över bilden */
+            transition: opacity 1s ease-out, transform 1s ease-out;
 
             &.fade-in {
                 opacity: 1;
                 transform: translate(-50%, -50%);
             }
-        }
-    }
-
-    &--second {
-        box-sizing: content-box;
-        height: 100vh;
-        opacity: 1;
-        transition: opacity 0.5s ease, visibility 0.5s ease;
-
-        &.hidden {
-            opacity: 0;
-            display: none;
-        }
-
-        .hero-inner__topic{
-
             &-ronja,
-            &-patrik{
+            &-patrik {
                 font-family: 'BrittanySignature', sans-serif;
                 font-size: 4rem;
                 font-weight: 100;
+    
             }
-
             &-and {
                 font-family: 'Josefin Sans', cursive;
                 font-weight: 600;
                 font-size: 1.5rem;
             }
+
         }
 
-        .hero-inner__content {
+        &__content {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -134,12 +129,7 @@
             text-align: center;
             height: 100%;
             width: 100%;
-            padding: 2rem;
             color: #111;
-
-            @media only screen and (max-width: 768px) {
-                padding: 1rem;
-            }
 
             &__topic-patrik {
                 margin-top: 1rem;
@@ -157,9 +147,17 @@
         object-fit: cover;
         width: 100vw;
         height: 100vh;
-        border-radius: 10px;
+        z-index: 99;
+        opacity: 0; /* Start som osynlig */
+        transform: translateY(20px); /* Liten förflyttning för effekt */
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Definiera övergång */
+    
+        &.visible {
+            opacity: 1;
+            transform: translateY(0); /* Återställ positionen */
+        }
     }
-
+    
 
     &-image1 {
         &__item1 {
@@ -170,17 +168,16 @@
             transform: none;
             transition: all 0.3s ease;
             object-fit: cover; /* För att säkerställa att bilden skalas korrekt */
-            
-            
+
             @media only screen and (max-width: 1250px) {
-                position: absolute;
+                // position: absolute;
                 width: 500px;
                 left: 66%;
                 top: -2rem;
             }
-            
+
             @media only screen and (max-width: 1000px) {
-                position: absolute;
+                // position: absolute;
                 width: 350px;
                 left: 70%;
                 top: 0;
@@ -190,7 +187,7 @@
                 width: 350px;
                 left: 64%;
             }
-            
+
             @media only screen and (max-width: 650px) {
                 width: 350px;
                 left: 55%;
@@ -215,8 +212,6 @@
         }
     }
 
-        
-
     &-image2 {
         transform: scaleX(-1);
         position: relative;
@@ -225,120 +220,113 @@
             width: 600px;
             position: absolute;
             left: 59rem;
-            top: -12rem;
+            top: -33rem;
             transition: all 0.3s ease;
             object-fit: cover; /* För att säkerställa att bilden skalas korrekt */
             transform: scaleY(-1);
-            
-            
+
             @media only screen and (max-width: 1350px) {
-                width: 500px;
+                width: 600px;
                 left: 56rem;
-                top: -6rem;
+                top: -32rem;
             }
             @media only screen and (max-width: 1250px) {
                 width: 500px;
                 left: 52rem;
-                top: -6rem;
+                top: -31rem;
             }
             @media only screen and (max-width: 1130px) {
                 width: 500px;
                 left: 45rem;
-                top: -6rem;
+                top: -31rem;
             }
-    
+
             @media only screen and (max-width: 1000px) {
                 width: 350px;
                 left: 43rem;
-                top: 0;
+                top: -25rem;
             }
-    
+
             @media only screen and (max-width: 880px) {
-                // width: 400px;
                 left: 36rem;
-                top: 2rem;
+                top: -23rem;
             }
 
             @media only screen and (max-width: 800px) {
-                // width: 400px;
                 left: 32rem;
-                top: 2rem;
+                top: -20rem;
             }
             @media only screen and (max-width: 730px) {
-                // width: 400px;
                 left: 27rem;
-                top: 2rem;
+                top: -20rem;
             }
-            
+
             @media only screen and (max-width: 650px) {
-                // width: 400px;
                 left: 22rem;
-                top: 2rem;
+                top: -20rem;
             }
 
             @media only screen and (max-width: 550px) {
-                // width: 400px;
                 left: 16rem;
-                top: 2rem;
+                top: -20rem;
             }
 
             @media only screen and (max-width: 450px) {
-                // width: 400px;
-                left: 10rem;
-                top: -1rem;
+                left: 12rem;
+                top: -20rem;
             }
 
             @media only screen and (max-width: 350px) {
-                // width: 400px;
                 left: 8rem;
-                top: 2rem;
+                top: -20rem;
             }
-            
-        } 
-
         }
     }
 
+    @media only screen and (max-width: 867px) {
+        .hero--first .hero-inner__topic {
+            font-size: 4rem;
+            padding-right: 1rem;
+            opacity: 1;
+        }
+    }
 
-@media only screen and (max-width: 867px) {
-    .hero--first .hero-inner__topic{
-        font-size: 4rem;
-        padding-right: 1rem;
+    /* Anpassa för mindre skärmar */
+    @media only screen and (max-width: 800px) {
+        .hero-randp {
+            position: relative;
+            object-fit: cover;
+            object-position: 56% 0%;
+            height: 100vh;
+        }
+
+        .hero-inner__image-item2 {
+            display: none;
+        }
+
+        .hero--first .hero-inner__image-container .hero-inner__image-item {
+            width: 100%;
+        }
+
+        .hero-inner__topic {
+            font-size: 2.7rem !important;
+            margin-top: 5rem;
+            left: 52% !important;
+            padding-right: 1rem;
+            opacity: 1;
+        }
+
+        .hero-inner__topic-ronja,
+        .hero-inner__topic-patrik {
+            font-size: 3rem !important;
+        }
+    }
+
+    @font-face {
+        font-family: 'BrittanySignature';
+        src: url('/fonts/BrittanySignature.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap; /* Gör att fallback-fonten visas direkt */
     }
 }
-
-/* Anpassa för mindre skärmar */
-@media only screen and (max-width: 800px) {
-    .hero-randp {
-        position: relative;
-        object-fit: cover;
-        object-position: 35% 0%;
-        height: 90vh;
-    }
-
-    .hero-inner__image-item2 {
-        display: none;
-    }
-
-    .hero--first .hero-inner__image-container .hero-inner__image-item {
-        width: 100%;
-    }
-
-    .hero-inner__topic {
-        font-size: 2rem !important;
-        margin-top: 5rem;
-    }
-
-    .hero-inner__topic-ronja,
-    .hero-inner__topic-patrik {
-        font-size: 3rem !important;
-    }
-}
-
-@font-face {
-    font-family: 'BrittanySignature';
-    src: url('/RonjaAndPatrik/fonts/BrittanySignature.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-

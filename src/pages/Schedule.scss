@@ -56,6 +56,11 @@ img{
     align-items: center;
     margin-bottom: 4rem;
   }
+
+  .bus-picture{
+    width: 45px !important;
+    height: 45px !important;
+  }
   
   .timeline-event.left {
     justify-content: flex-start;
@@ -64,7 +69,6 @@ img{
   
   .timeline-event.right {
     justify-content: flex-end;
-    padding-right: 40px; /* Flyttar händelsen till höger om linjen */
     text-align: right; /* Texten till höger */
   }
   .timeline-event.right-food {
@@ -207,7 +211,8 @@ img{
     .timeline-event.right,
     .timeline-event.right-food,
     .timeline-event.right-cake,
-    .timeline-event.right-kids {
+    .timeline-event.right-kids,
+    .timeline-event.right-bus {
       justify-content: center; /* Centrera högerhändelser */
       padding-left: 0; /* Återställ padding */
     }
@@ -226,7 +231,7 @@ img{
 
     .wedding-party-timeline__inner{
       margin: 0;
-      padding: 0;
+      padding: 2rem 0 0 0;
     }
   
     .timeline-event::before {

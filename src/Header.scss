@@ -1,158 +1,166 @@
 .header {
-    height: 250px;
-    margin: 2rem 0 5rem 0;
-    opacity: 0;   /* Göm initialt */
-    display: none;   /* Göm initialt */
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    margin: 2rem 0;
     transition: opacity 0.5s ease, visibility 0.5s ease;
+    display: none; /* Dölj som standard */
+}
 
-    &.visible {
-        opacity: 1;
-        display: block;   /* Visa när den blir synlig */
-    }
+.header.visible {
+    display: block; /* Visa när den är synlig */
+    position: relative; /* Ändra position så att den inte påverkar layouten */
+    opacity: 1;
+}
 
-    &-topic__content {
-        font-family: 'BrittanySignature', sans-serif;
-        font-size: 4rem;
-        font-weight: lighter;
-        color: #214f1c;
-        margin: 0 0 3rem 0;
-    }
+.header.hidden {
+    display: none; /* Dölj header */
+    opacity: 0;
+}
 
-    &-date {
-        font-family: 'Josefin Sans', sans-serif;
-        font-weight: light;
-        font-size: 1rem;
-    }
-    
-    &-inner {
+.header-topic__content {
+    font-family: 'BrittanySignature', sans-serif;
+    font-size: 4rem;
+    font-weight: lighter;
+    color: #214f1c;
+    margin: 0 0 3rem 0;
+}
+
+.header-date {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: light;
+    font-size: 1rem;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.header-nav {
+    &__item {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
+        list-style: none;
+        gap: 4rem; /* Den vanliga menyn visas som rad på stora skärmar */
     }
 
-    &-nav {
-        &__item {
-            display: flex;
-            list-style: none;
-            gap: 4rem; /* Den vanliga menyn visas som rad på stora skärmar */
-        }
+    &__items {
+        font-family: 'Josefin Sans', sans-serif;
+        color: black;
+        z-index: 9999;
+    }
 
-        &__items {
-            font-family: 'Josefin Sans', sans-serif;
-            color: black;
-            z-index: 9999;
-        }
+    .header-nav__links {
+        position: relative;
+        text-decoration: none;
+        color: black;
+        padding: 5px 10px;
+        display: inline-block;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 24px;
+        color: #214f1c;
+    }
 
-        .header-nav__links {
-            position: relative;
-            text-decoration: none;
-            color: black;
-            padding: 5px 10px;
-            display: inline-block;
-            font-family: 'Josefin Sans', sans-serif;
-            font-size: 24px;
-            color: #214f1c;
-        }
+    .header-nav__links::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: -5px;
+        width: 0;
+        height: 2px;
+        background-color: rgb(97, 119, 112);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+        z-index: 99;
+        pointer-events: none;
+    }
 
-        .header-nav__links::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: -5px;
-            width: 0;
-            height: 2px;
-            background-color: rgb(97, 119, 112);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-            z-index: 99;
-            pointer-events: none;
-        }
+    .header-nav__links:hover::after,
+    .header-nav__items.active .header-nav__links::after {
+        width: 100%;
+    }
 
-        .header-nav__links:hover::after,
-        .header-nav__items.active .header-nav__links::after {
-            width: 100%;
-        }
+    .header-nav__items:hover .header-nav__links,
+    .header-nav__items.active .header-nav__links {
+        color: rgb(97, 119, 112);
+    }
+}
 
-        .header-nav__items:hover .header-nav__links,
-        .header-nav__items.active .header-nav__links {
+/* Hamburgarmenyn */
+.header-hamburger {
+    display: none; /* Dölj hamburgarmenyn på stora skärmar */
+    font-size: 40px;
+    color: #214f1c;
+    cursor: pointer;
+}
+
+/* Fullskärms-overlay när menyn är öppen */
+.header-overlay {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Starta utanför skärmen till höger */
+    width: 100%;
+    height: 100vh;
+    background-color: #e6dcca;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 999;
+    transition: right 0.4s ease-in-out; /* Slida in/ut från höger */
+
+    &.open {
+        right: 0; /* Slida in när menyn öppnas */
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        padding: 0;
+        list-style: none;
+    }
+
+    a {
+        font-size: 30px;
+        color: #214f1c;
+        text-decoration: none;
+
+        &:hover {
             color: rgb(97, 119, 112);
         }
     }
 
-    /* Hamburgarmenyn */
-    &-hamburger {
-        display: none; /* Dölj hamburgarmenyn på stora skärmar */
-        font-size: 40px;
-        color: #214f1c;
-        cursor: pointer;
-    }
-
-    /* Fullskärms-overlay när menyn är öppen */
-    &-overlay {
-        position: fixed;
-        top: 0;
-        right: -100%; /* Starta utanför skärmen till höger */
-        width: 100%;
-        height: 100%;
-        background-color: #e6dcca;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        z-index: 999;
-        transition: right 0.4s ease-in-out; /* Slida in/ut från höger */
-
-        &.open {
-            right: 0; /* Slida in när menyn öppnas */
-        }
-
-        ul {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            text-align: center;
-            padding: 0;
-            list-style: none;
-        }
-
-        a {
-            font-size: 30px;
-            color: #214f1c;
-            text-decoration: none;
-
-            &:hover {
-                color: rgb(97, 119, 112);
-            }
-        }
-
-        /* X-knappen för att stänga menyn */
-        &__close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 36px;
-            color: #214f1c;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-
-            button {
-                box-shadow: none;
-            }
-        }
-    }
-
-    &-nav__flower {
+    /* X-knappen för att stänga menyn */
+    &__close {
         position: absolute;
-        right: -50px;
-        z-index: -1;
-        top: 70px;
+        top: 20px;
+        right: 30px;
+        font-size: 36px;
+        color: #214f1c;
+        background: transparent;
+        border: none;
+        cursor: pointer;
 
-        &-overlay {
-            opacity: 60%;
-            width: 300px;
+        button {
+            box-shadow: none;
         }
+    }
+}
+
+.header-nav__flower {
+    position: absolute;
+    right: -50px;
+    z-index: -1;
+    top: 70px;
+
+    &-overlay {
+        opacity: 60%;
+        width: 300px;
     }
 }
 
@@ -172,6 +180,7 @@
     .header-topic__content {
         font-size: 3rem;
         margin-bottom: 1rem;
+        margin-top: 1rem;
     }
 
     .header-nav__item {
@@ -198,210 +207,3 @@
         display: none; /* Dölj hamburgarmenyn på stora skärmar */
     }
 }
-
-
-// li{
-//     list-style: none;
-// }
-
-// .header {
-//     height: 250px;
-//     margin: 2rem 0 5rem 0;
-//     opacity: 0;   /* Göm initialt */
-//     display: none;   /* Göm initialt */
-//     transition: opacity 0.5s ease, visibility 0.5s ease;
-
-//     &.visible {
-//         opacity: 1;
-//         display: block;   /* Visa när den blir synlig */
-//     }
-
-//     &-topic__content {
-//         font-family: 'BrittanySignature', sans-serif;
-//         font-size: 4rem;
-//         font-weight: lighter;
-//         color: #214f1c;
-//         margin: 0 0 3rem 0;
-//     }
-
-//     &-date{
-//         font-family: 'Josefin Sans', sans-serif;
-//         font-weight: light;
-//         font-size: 1rem;
-//     }
-    
-//     &-inner {
-//         display: flex;
-//         align-items: center;
-//         justify-content: center;
-//         flex-direction: column;
-//     }
-
-//     &-nav {
-//         &__item {
-//             display: flex;
-//             gap: 4rem; /* Den vanliga menyn visas som rad på stora skärmar */
-//         }
-
-//         &__items{
-//             font-family: 'Josefin Sans', sans-serif;
-//             color: black;
-//         }
-
-//         .header-nav__links {
-//             position: relative;
-//             text-decoration: none;
-//             color: black;
-//             padding: 5px 10px;
-//             display: inline-block;
-//             font-family: 'Josefin Sans', sans-serif;
-//             font-size: 24px;
-//             color: #214f1c;
-//         }
-
-//         .header-nav__links::after {
-//             content: '';
-//             position: absolute;
-//             left: 50%;
-//             bottom: -5px;
-//             width: 0;
-//             height: 2px;
-//             background-color: rgb(97, 119, 112);
-//             transition: all 0.3s ease;
-//             transform: translateX(-50%);
-//             z-index: 99;
-//             pointer-events: none;
-//         }
-
-//         .header-nav__links:hover::after,
-//         .header-nav__items.active .header-nav__links::after {
-//             width: 100%;
-//         }
-
-//         .header-nav__items:hover .header-nav__links,
-//         .header-nav__items.active .header-nav__links {
-//             color: rgb(97, 119, 112);
-//         }
-//     }
-
-//     /* Hamburgermenyn */
-//     &-hamburger {
-//         display: none; /* Dölj hamburgarmenyn på stora skärmar */
-//         font-size: 40px;
-//         color: #214f1c;
-//         cursor: pointer;
-//     }
-
-//     /* Fullskärms-overlay när menyn är öppen */
-//     &-overlay {
-//         display: none;
-//         position: fixed;
-//         top: 0;
-//         left: 0;
-//         width: 100%;
-//         height: 100%;
-//         background-color: #e6dcca;
-//         justify-content: center;
-//         align-items: center;
-//         flex-direction: column;
-//         z-index: 999;
-//         transition: all 0.3s ease-in-out;
-
-//         &.open {
-//             display: flex;
-//         }
-
-//         ul {
-//             display: flex;
-//             flex-direction: column;
-//             gap: 20px;
-//             text-align: center;
-//             padding: 0;
-//             list-style: none;
-//         }
-
-//         a {
-//             font-size: 30px;
-//             color: #214f1c;
-//             text-decoration: none;
-
-//             &:hover{
-//                 color: rgb(97, 119, 112);
-//             }
-//         }
-
-//         /* X-knappen för att stänga menyn */
-//         &__close {
-//             position: absolute;
-//             top: 20px;
-//             right: 30px;
-//             font-size: 36px;
-//             color: #214f1c;
-//             background: transparent;
-//             border: none;
-//             cursor: pointer;
-
-//             button{
-//                 box-shadow: none;
-//             }
-//         }
-//     }
-
-//     &-nav__flower{
-//         position: absolute;
-//         right: -50px;
-//         z-index: -1;
-//         top: 70px;
-
-//         &-overlay{
-//             opacity: 60%;
-//             width: 300px;
-//         }
-//     }
-// }
-
-// @media (max-width: 1100px) {
-//     .header-nav__item{
-//         gap: 2rem;
-//     }
-// }
-
-// /* Media query för hamburgermeny vid mindre skärmar */
-// @media (max-width: 801px) {
-
-//     .header-wedding{
-//         height: 170px;
-//         margin-bottom: 3rem;
-//     }
-//     .header-topic__content{
-//         font-size: 3rem;
-//         margin-bottom: 1rem;
-//     }
-
-//     .header-nav__item {
-//         display: none; /* Dölj den vanliga menyn på små skärmar */
-//     }
-
-//     .header-hamburger {
-//         display: block; /* Visa hamburgarmenyn på små skärmar */
-//         color: #214f1c;
-//     }
-// }
-
-// /* Media query för större skärmar */
-// /* Media query för större skärmar */
-// @media (min-width: 800px) {
-
-
-//     .header-overlay {
-//         display: none; /* Dölj overlay-menyn på stora skärmar */
-//     }
-
-//     .header-nav__item {
-//         display: flex; /* Visa den vanliga menyn på stora skärmar som flexbox */
-//     }
-
-//     .header-hamburger {
-//         display: none; /* Dölj hamburgarmenyn på stora skärmar */
-//     }
-// }

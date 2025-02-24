@@ -42,7 +42,17 @@ function Wedding() {
 
           <img className="schedule-flower1" src="./images/Untitled (500 x 500 px).png" alt=""/>
           
-          <div className="timeline-event left" ref={el => eventsRef.current[0] = el}>
+          <div className="timeline-event right timeline-event-right-bus" ref={el => eventsRef.current[0] = el}>
+            <p className="event-time">13:00</p>
+            <div className="event-details">
+              <div className="event-icon">
+                <img className="bus-picture" src="./images/icons8-bus-50.png" alt="Groom Arrival" />
+              </div>
+              <p className="event-description">Bus from Lund Station</p>
+            </div>
+          </div>
+
+          <div className="timeline-event left" ref={el => eventsRef.current[1] = el}>
             <p className="event-time">13:30</p>
             <div className="event-details">
               <div className="event-icon">
@@ -52,7 +62,7 @@ function Wedding() {
             </div>
           </div>
 
-          <div className="timeline-event right" ref={el => eventsRef.current[1] = el}>
+          <div className="timeline-event right" ref={el => eventsRef.current[2] = el}>
             <p className="event-time">14:00</p>
             <div className="event-details">
               <div className="event-icon">
@@ -62,7 +72,7 @@ function Wedding() {
             </div>
           </div>
 
-          <div className="timeline-event left" ref={el => eventsRef.current[2] = el}>
+          <div className="timeline-event left" ref={el => eventsRef.current[3] = el}>
             <p className="event-time">14:30</p>
             <div className="event-details">
               <div className="event-icon">
@@ -72,7 +82,7 @@ function Wedding() {
             </div>
           </div>
 
-          <div className="timeline-event right right-food" ref={el => eventsRef.current[3] = el}>
+          <div className="timeline-event right right-food" ref={el => eventsRef.current[4] = el}>
             <p className="event-time">16:30</p>
             <div className="event-details">
               <div className="event-icon">
@@ -86,7 +96,7 @@ function Wedding() {
             <img className="schedule-flower2" src="./images/Untitled (500 x 500 px).png" alt=""/>
           </div>
 
-          <div className="timeline-event left left-dinner" ref={el => eventsRef.current[4] = el}>
+          <div className="timeline-event left left-dinner" ref={el => eventsRef.current[5] = el}>
             <p className="event-time">17:00</p>
             <div className="event-details">
               <div className="event-icon">
@@ -96,7 +106,7 @@ function Wedding() {
             </div>
           </div>
 
-          <div className="timeline-event right right-cake" ref={el => eventsRef.current[5] = el}>
+          <div className="timeline-event right right-cake" ref={el => eventsRef.current[6] = el}>
             <p className="event-time">19:30</p>
             <div className="event-details">
               <div className="event-icon">
@@ -106,7 +116,7 @@ function Wedding() {
             </div>
           </div>
 
-          <div className="timeline-event left left-dance" ref={el => eventsRef.current[6] = el}>
+          <div className="timeline-event left left-dance" ref={el => eventsRef.current[7] = el}>
             <p className="event-time">20:00</p>
             <div className="event-details">
               <div className="event-icon">
@@ -116,17 +126,17 @@ function Wedding() {
             </div>
           </div>
 
-          <div className="timeline-event right right-kids" ref={el => eventsRef.current[7] = el}>
+          <div className="timeline-event right right-kids" ref={el => eventsRef.current[8] = el}>
             <p className="event-time">21:00</p>
             <div className="event-details">
               <div className="event-icon">
                 <img src="./images/children.png" alt="Kids Free" />
               </div>
-              <p className="event-description">Kids free</p>
+              <p className="event-description">No Kids</p>
             </div>
           </div>
 
-          <div className="timeline-event left left-wave" ref={el => eventsRef.current[8] = el}>
+          <div className="timeline-event left left-wave" ref={el => eventsRef.current[9] = el}>
             <p className="event-time">00:00</p>
             <div className="event-details">
               <div className="event-icon">
@@ -135,6 +145,17 @@ function Wedding() {
               <p className="event-description">Wave us off</p>
             </div>
           </div>
+
+          <div className="timeline-event right" ref={el => eventsRef.current[10] = el}>
+            <p className="event-time">01:00</p>
+            <div className="event-details">
+              <div className="event-icon">
+                <img className="bus-picture" src="./images/icons8-bus-50.png" alt="Groom Arrival" />
+              </div>
+              <p className="event-description">Bus to Lund Station</p>
+            </div>
+          </div>
+
         </div>
       </section>
     </>

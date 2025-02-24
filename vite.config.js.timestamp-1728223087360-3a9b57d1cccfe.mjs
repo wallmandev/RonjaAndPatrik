@@ -2,7 +2,7 @@
 import { defineConfig } from "file:///Users/christofferwallman/Library/CloudStorage/GoogleDrive-wallman92@gmail.com/Min%20enhet/Jobb/RonjaAndPatrik/RonjaAndPatrik/node_modules/vite/dist/node/index.js";
 import react from "file:///Users/christofferwallman/Library/CloudStorage/GoogleDrive-wallman92@gmail.com/Min%20enhet/Jobb/RonjaAndPatrik/RonjaAndPatrik/node_modules/@vitejs/plugin-react-swc/index.mjs";
 var vite_config_default = defineConfig({
-  base: "/RonjaAndPatrik/",
+  base: "/",
   plugins: [react()],
   build: {
     outDir: "dist"
