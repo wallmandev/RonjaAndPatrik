@@ -225,6 +225,59 @@
             object-fit: cover; /* För att säkerställa att bilden skalas korrekt */
             transform: scaleY(-1);
 
+            @media only screen and (max-width: 2000px) {
+                width: 600px;
+                left: 93.5rem;
+                top: -35rem;
+            }
+
+            @media only screen and (max-width: 1921px) {
+                width: 600px;
+                left: 89rem;
+                top: -35rem;
+            }
+
+            @media only screen and (max-width: 1850px) {
+                width: 600px;
+                left: 86rem;
+                top: -35rem;
+            }
+
+            @media only screen and (max-width: 1825px) {
+                width: 600px;
+                left: 85rem;
+                top: -35rem;
+            }
+
+            @media only screen and (max-width: 1750px) {
+                width: 600px;
+                left: 79rem;
+                top: -35rem;
+            }
+
+            @media only screen and (max-width: 1600px) {
+                width: 600px;
+                left: 70rem;
+                top: -35rem;
+            }
+
+            @media only screen and (max-width: 1550px) {
+                width: 600px;
+                left: 66rem;
+                top: -35rem;
+            }
+
+            @media only screen and (max-width: 1500px) {
+                width: 600px;
+                left: 63rem;
+                top: -35rem;
+            }
+
+            @media only screen and (max-width: 1441px) {
+                width: 600px;
+                left: 60rem;
+                top: -35rem;
+            }
             @media only screen and (max-width: 1350px) {
                 width: 600px;
                 left: 56rem;
@@ -243,12 +296,18 @@
 
             @media only screen and (max-width: 1000px) {
                 width: 350px;
-                left: 43rem;
+                left: 44rem;
+                top: -25rem;
+            }
+
+            @media only screen and (max-width: 950px) {
+                width: 350px;
+                left: 41rem;
                 top: -25rem;
             }
 
             @media only screen and (max-width: 880px) {
-                left: 36rem;
+                left: 37rem;
                 top: -23rem;
             }
 
@@ -273,12 +332,12 @@
 
             @media only screen and (max-width: 450px) {
                 left: 12rem;
-                top: -20rem;
+                top: -23rem;
             }
 
             @media only screen and (max-width: 350px) {
                 left: 8rem;
-                top: -20rem;
+                top: -23rem;
             }
         }
     }

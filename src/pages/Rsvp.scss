@@ -37,7 +37,7 @@
     width: 100%; /* Täck hela sidbredden */
     height: 100%; /* Täck hela sidans höjd */
     background: linear-gradient(to bottom, rgba(230, 220, 202, 0.99), rgba(0, 0, 0, 0.5)), 
-                url('/images/RSVP-photo-two.jpg'); /* Gradient och bild */
+    url('/images/RSVP-photo-two.jpg'); /* Gradient och bild */
     background-size: cover; /* Gör att bilden täcker hela området och behåller rätt proportioner */
     background-position: center; /* Centrera bilden */
     z-index: -1; /* Placera bilden bakom innehållet */
@@ -214,7 +214,29 @@
 
 
 /* Media Queries */
+@media only screen and (max-width: 1930px) {
+  .rsvp-form__photo {
+    background-size: 100rem;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .rsvp-form__photo {
+    background-size: cover;
+    background-position: center bottom;
+  }
+}
+
+@media only screen and (max-width: 1920px) {
+  .rsvp-form__photo {
+    background-size: cover;
+    background-position: center bottom;
+  }
+}
+
 @media only screen and (max-width: 1450px) {
+
+
   .content-inner {
       max-width: 500px;
   }
@@ -240,6 +262,12 @@
       height: 115%;
       width: 100vw;
     }
+  }
+}
+
+@media only screen and (min-width: 1110px) {
+  .rsvp-form__photo {
+    background-position: right 10% bottom;
   }
 }
 

@@ -221,6 +221,10 @@
       left: 22rem;
       top: 10rem;
   }
+
+  .slideshow{
+    height: 80vh;
+  }
 }
 
 /* Media Queries */
@@ -229,7 +233,6 @@
        left: 20rem;
        top: 10rem;
    }
-
 }
 
 @media only screen and (max-width: 1367px) {

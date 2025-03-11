@@ -75,18 +75,19 @@ function Rsvp() {
     const removeFamilyMember = (index) => {
         const updatedMembers = formData.familyMembers.filter((_, i) => i !== index);
         setFormData({ ...formData, familyMembers: updatedMembers });
-    };                      
-                                                    const handleSubmit = async (e) => {
-                                                        e.preventDefault();
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
                                                     
-                                                        // Sätt status för att visa att formuläret skickats
-                                                        setSubmitted(true);
+            // Sätt status för att visa att formuläret skickats
+        setSubmitted(true);
                                                     
-                                                        // Konfigurera data för Google Forms
-                                                        const googleFormData = new FormData();
+        // Konfigurera data för Google Forms
+        const googleFormData = new FormData();
                                                     
                                                         // Huvudpersonens data
-                                                        googleFormData.append("entry.2084319408", formData.name);
+         googleFormData.append("entry.2084319408", formData.name);
                                                         googleFormData.append("entry.1747395762", formData.email);
                                                         googleFormData.append("entry.616099590", formData.attending);
                                                     
